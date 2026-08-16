@@ -81,181 +81,6 @@ footer{background:#043c35;color:#fff;padding:18px;text-align:center;font-size:13
 .small{font-size:12px;color:#666}.ltr{direction:ltr;display:inline-block}
 @media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}.cash-grid,.hajj,.contact-grid{grid-template-columns:1fr}.hotels{grid-template-columns:repeat(3,1fr)}.quick{grid-template-columns:repeat(2,1fr)}nav{display:none}.hero{min-height:580px}.hero-content{padding:55px 0}.hero{background-position:60% center}}
 @media(max-width:520px){.cards{grid-template-columns:1fr}.hotels{grid-template-columns:repeat(2,1fr)}.quick{grid-template-columns:1fr 1fr}.hero p{font-size:16px}section{padding:45px 0}}
-
-/* ===== Hamsa Premium Visual Upgrade ===== */
-html{background:#f6f0e3}
-body{
-  background:
-    radial-gradient(circle at 10% 10%,rgba(213,162,58,.12),transparent 25%),
-    radial-gradient(circle at 90% 25%,rgba(6,77,67,.10),transparent 28%),
-    radial-gradient(circle at 15% 75%,rgba(213,162,58,.08),transparent 22%),
-    linear-gradient(135deg,#fffdf8 0%,#f7f1e5 50%,#fffdf8 100%);
-  position:relative;
-}
-body:before{
-  content:"";
-  position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.28;
-  background-image:
-    linear-gradient(30deg,#d5a23a 12%,transparent 12.5%,transparent 87%,#d5a23a 87.5%,#d5a23a),
-    linear-gradient(150deg,#d5a23a 12%,transparent 12.5%,transparent 87%,#d5a23a 87.5%,#d5a23a),
-    linear-gradient(30deg,#d5a23a 12%,transparent 12.5%,transparent 87%,#d5a23a 87.5%,#d5a23a),
-    linear-gradient(150deg,#d5a23a 12%,transparent 12.5%,transparent 87%,#d5a23a 87.5%,#d5a23a),
-    radial-gradient(circle at center,rgba(6,77,67,.12) 2px,transparent 3px);
-  background-position:0 0,0 0,10px 17px,10px 17px,0 0;
-  background-size:40px 70px,40px 70px,40px 70px,40px 70px,20px 20px;
-  mask-image:linear-gradient(to bottom,transparent,#000 8%,#000 92%,transparent);
-}
-header{
-  background:linear-gradient(90deg,rgba(3,48,42,.98),rgba(6,77,67,.96),rgba(3,48,42,.98));
-  border-bottom:1px solid rgba(241,199,91,.35);
-  backdrop-filter:blur(12px);
-}
-.nav{min-height:76px}
-.logo{height:60px;width:96px;box-shadow:0 5px 18px rgba(0,0,0,.18)}
-nav a{position:relative;padding:10px 2px}
-nav a:after{
-  content:"";position:absolute;right:0;bottom:3px;width:0;height:2px;
-  background:var(--gold2);transition:.25s;border-radius:10px
-}
-nav a:hover:after{width:100%}
-.wa-top{
-  background:linear-gradient(135deg,#13a66f,#0b8059);
-  box-shadow:0 6px 18px rgba(0,0,0,.18)
-}
-.hero{
-  min-height:650px;
-  background:
-    linear-gradient(90deg,rgba(255,249,235,.98) 0%,rgba(255,249,235,.92) 30%,rgba(255,249,235,.48) 56%,rgba(3,42,36,.18) 100%),
-    linear-gradient(180deg,rgba(6,77,67,.05),rgba(0,0,0,.18)),
-    url('kaaba.jpg') center/cover;
-}
-.hero:after{
-  content:"";position:absolute;inset:auto 0 0;height:110px;
-  background:linear-gradient(transparent,#f7f1e5);
-  pointer-events:none
-}
-.hero-content{position:relative;z-index:2}
-.badge{
-  background:rgba(255,255,255,.72);backdrop-filter:blur(8px);
-  box-shadow:0 8px 24px rgba(0,0,0,.08)
-}
-h1{text-shadow:0 2px 12px rgba(255,255,255,.65)}
-.hero p{
-  background:rgba(255,255,255,.42);backdrop-filter:blur(5px);
-  border-right:4px solid var(--gold);padding:10px 16px;border-radius:12px
-}
-.btn{box-shadow:0 7px 18px rgba(0,0,0,.10);transition:.25s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 12px 25px rgba(0,0,0,.16)}
-.quick .item{
-  background:rgba(255,255,255,.88);backdrop-filter:blur(12px);
-  border:1px solid rgba(213,162,58,.22)
-}
-section{position:relative}
-section:nth-of-type(even){
-  background:linear-gradient(180deg,rgba(255,255,255,.38),rgba(247,241,229,.72)) !important;
-}
-section:nth-of-type(odd){
-  background:linear-gradient(180deg,rgba(255,253,248,.58),rgba(255,255,255,.35));
-}
-.section-title{font-weight:900;text-shadow:0 2px 10px rgba(6,77,67,.08)}
-.section-title:before{
-  content:"✦";color:var(--gold);font-size:17px;margin-left:10px;vertical-align:middle
-}
-.section-title:after{
-  height:4px;width:90px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent)
-}
-.card,.cash,.hotel-card{
-  background:rgba(255,255,255,.90);
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(213,162,58,.24);
-  box-shadow:0 12px 35px rgba(30,55,48,.09);
-}
-.card:hover,.cash:hover,.hotel-card:hover{
-  transform:translateY(-7px);
-  border-color:rgba(213,162,58,.55)
-}
-.card-img{position:relative}
-.card-img:after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 45%,rgba(3,48,42,.22))
-}
-.price{
-  background:linear-gradient(135deg,var(--green),var(--green2));
-  box-shadow:inset 0 1px rgba(255,255,255,.18)
-}
-.gold-card .price{background:linear-gradient(135deg,#c28d28,#e0b24e)}
-.cash table tr:hover td{background:#fff8e8}
-.hajj .box{box-shadow:0 14px 30px rgba(0,0,0,.12);border:1px solid rgba(255,255,255,.18)}
-.notice{
-  background:linear-gradient(135deg,rgba(255,249,232,.96),rgba(255,255,255,.82));
-  box-shadow:0 8px 25px rgba(120,90,30,.07)
-}
-#hotels{
-  background:
-    linear-gradient(rgba(248,243,232,.91),rgba(248,243,232,.91)),
-    url('medina.jpg') center/cover fixed !important;
-}
-.hotel-img{transition:.35s}
-.hotel-card:hover .hotel-img{transform:scale(1.04)}
-.contact{
-  background:
-    linear-gradient(135deg,rgba(4,61,53,.97),rgba(11,105,91,.94)),
-    url('kaaba.jpg') center/cover;
-  box-shadow:0 18px 45px rgba(3,48,42,.18);
-  border:1px solid rgba(241,199,91,.3)
-}
-.contact-box{
-  background:rgba(255,255,255,.09);
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,.16)
-}
-.float-wa{
-  background:linear-gradient(135deg,#20d67e,#0a9e61);
-  border:3px solid #fff;
-  box-shadow:0 8px 28px rgba(0,0,0,.25);
-  animation:waPulse 2.2s infinite
-}
-@keyframes waPulse{
-  0%,100%{box-shadow:0 8px 28px rgba(0,0,0,.25),0 0 0 0 rgba(32,214,126,.35)}
-  50%{box-shadow:0 8px 28px rgba(0,0,0,.25),0 0 0 12px rgba(32,214,126,0)}
-}
-footer{
-  background:linear-gradient(90deg,#032f29,#064d43,#032f29);
-  border-top:1px solid rgba(241,199,91,.35)
-}
-@media(max-width:900px){
- .hero{min-height:620px;background-position:62% center}
- .hero-content{padding-top:80px}
-}
-@media(max-width:520px){
- .hero{min-height:610px}
- h1{font-size:39px}
- .hero p{font-size:15px}
- .badge{font-size:12px}
- .card,.cash{box-shadow:0 8px 22px rgba(30,55,48,.08)}
-}
-
-
-/* HAMSA PREMIUM V2 */
-body{background:radial-gradient(circle at 10% 10%,#d5a23a12,transparent 25%),radial-gradient(circle at 90% 30%,#064d4310,transparent 28%),#fbf8f1}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.18;background-image:linear-gradient(30deg,#064d4310 12%,transparent 12.5%,transparent 87%,#064d4310 87.5%),linear-gradient(150deg,#064d4310 12%,transparent 12.5%,transparent 87%,#064d4310 87.5%);background-size:46px 80px;background-position:0 0,23px 40px}
-header{background:rgba(3,50,44,.82)!important;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid #f1c75b38}
-.logo{box-shadow:0 5px 20px #0003;border:1px solid #d5a23a}
-.hero{min-height:650px!important;background:linear-gradient(90deg,#fbf7effa 0%,#fbf7efea 30%,#04393273 68%,#0000006b),url('bg-hero.jpg') center/cover!important}
-.hero:after{content:"";position:absolute;inset:auto 0 0;height:120px;background:linear-gradient(transparent,#fbf8f1);pointer-events:none}
-.hero-content{position:relative;z-index:2}.badge{box-shadow:0 8px 25px #0002;background:#fffbeaee!important;backdrop-filter:blur(8px)}
-.btn{box-shadow:0 7px 20px #0002;transition:.25s}.btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px #0003}
-.quick .item,.card,.cash,.hotel-card{background:#ffffffea!important;backdrop-filter:blur(9px);border:1px solid #d5a23a3d!important}
-#umrah{background:linear-gradient(#fbf8f1e8,#fbf8f1f5),url('bg-kaaba.jpg') center/cover fixed}
-#cash{background:linear-gradient(#fffdf8f0,#fffdf8f7),url('bg-kaaba.jpg') center/cover fixed}
-#hajj{background:linear-gradient(#f8f3e8e8,#f8f3e8f5),url('bg-hajj.jpg') center/cover fixed!important}
-#hotels{background:linear-gradient(#f8f3e8e8,#f8f3e8f5),url('bg-hotel.jpg') center/cover fixed!important}
-.contact{background:linear-gradient(135deg,#033c34f2,#086456e6),url('bg-medina.jpg') center/cover!important;box-shadow:0 18px 50px #0003;border:1px solid #f1c75b40}
-.contact-box{background:#ffffff18!important;backdrop-filter:blur(12px)}
-.float-wa{animation:hamsaPulse 2.4s infinite;border:3px solid #fff}
-@keyframes hamsaPulse{0%,100%{transform:scale(1);box-shadow:0 7px 22px #0004,0 0 0 0 #19b87859}50%{transform:scale(1.06);box-shadow:0 10px 28px #0005,0 0 0 13px #19b87800}}
-@media(max-width:900px){.hero{min-height:610px!important;background:linear-gradient(180deg,#fbf7efe8,#fbf7efc2 48%,#04393247),url('bg-hero.jpg') center/cover!important}#umrah,#cash,#hajj,#hotels{background-attachment:scroll!important}}
 </style>
 </head>
 <body>
@@ -296,7 +121,7 @@ header{background:rgba(3,50,44,.82)!important;backdrop-filter:blur(16px);-webkit
 <div class="card gold-card"><div class="card-img" style="background-image:url('hotel.jpg')"></div><div class="card-body"><h3>عمرة التيسير البلاتينوم</h3><ul><li>5,000 جنيه</li><li>على 12 شهر</li><li>برنامج مميز</li></ul><div class="price">5,000 × 12 شهر</div></div></div>
 <div class="card gold-card"><div class="card-img" style="background-image:url('medina.jpg')"></div><div class="card-body"><h3>عمرة التيسير الذهبية</h3><ul><li>4,000 جنيه</li><li>على 12 شهر</li><li>خيار مميز للتيسير</li></ul><div class="price">4,000 × 12 شهر</div></div></div>
 </div>
-<div class="notice"><b>ملحوظة تيسير رمضان:</b> لو حابب تحجز بعد بداية الحجز ، يمكنك دفع الشهور السابقة بأثر رجعي وفقًا لنظام الحجز المتاح.</div>
+<div class="notice"><b>ملحوظة تيسير رمضان:</b> لو حابب تحجز بعد بداية الحج، يمكنك دفع الشهور السابقة بأثر رجعي وفقًا لنظام الحجز المتاح.</div>
 </div>
 </section>
 
@@ -313,11 +138,11 @@ header{background:rgba(3,50,44,.82)!important;backdrop-filter:blur(16px);-webkit
 
 <section id="cash">
 <div class="container">
-<h2 class="section-title">برامج العمره للدفع للكاش </h2>
+<h2 class="section-title">عمرة الكاش</h2>
 <p style="text-align:center;font-weight:800">أسعار النصف الأول من شهر 9 فقط — للفروع المستفيدة من مطار برج العرب ومطار القاهرة</p>
 <div class="cash-grid">
-<div class="cash"><h3>ريع بخش — اقتصادي بالمواصلات</h3><div class="hotel">المدينة: نسك المدينة / درة الإيمان / طيبة هيلز — 3 ليالي</div><div class="hotel">مكة: قصر العليان / النخبة 1 / أبراج القصواء — 11 ليلة</div><table><tr><td>رباعي</td><td>41,500</td></tr><tr><td>ثلاثي</td><td>44,500</td></tr><tr><td>ثنائي</td><td>49,900</td></tr><tr><td>سينجل</td><td>65,500</td></tr><tr><td>طفل</td><td>32,500</td></tr><tr><td>رضيع</td><td>17,500</td></tr></table></div>
-<div class="cash"><h3>اقتصادي مشي —بير بليلة</h3><div class="hotel">المدينة: نسك المدينة / درة الإيمان / طيبة هيلز — 3 ليالي</div><div class="hotel">مكة: إعمار أفاق — 11 ليلة</div><table><tr><td>رباعي</td><td>43,000</td></tr><tr><td>ثلاثي</td><td>47,500</td></tr><tr><td>ثنائي</td><td>53,900</td></tr><tr><td>سينجل</td><td>73,900</td></tr><tr><td>طفل</td><td>32,500</td></tr><tr><td>رضيع</td><td>17,500</td></tr></table></div>
+<div class="cash"><h3>ربع بخش — اقتصادي بالمواصلات</h3><div class="hotel">المدينة: نسك المدينة / درة الإيمان / طيبة هيلز — 3 ليالي</div><div class="hotel">مكة: قصر العليان / النخبة 1 / أبراج القصواء — 11 ليلة</div><table><tr><td>رباعي</td><td>41,500</td></tr><tr><td>ثلاثي</td><td>44,500</td></tr><tr><td>ثنائي</td><td>49,900</td></tr><tr><td>سينجل</td><td>65,500</td></tr><tr><td>طفل</td><td>32,500</td></tr><tr><td>رضيع</td><td>17,500</td></tr></table></div>
+<div class="cash"><h3>اقتصادي مشي — بير ليلي</h3><div class="hotel">المدينة: نسك المدينة / درة الإيمان / طيبة هيلز — 3 ليالي</div><div class="hotel">مكة: إعمار أفاق — 11 ليلة</div><table><tr><td>رباعي</td><td>43,000</td></tr><tr><td>ثلاثي</td><td>47,500</td></tr><tr><td>ثنائي</td><td>53,900</td></tr><tr><td>سينجل</td><td>73,900</td></tr><tr><td>طفل</td><td>32,500</td></tr><tr><td>رضيع</td><td>17,500</td></tr></table></div>
 <div class="cash"><h3>اقتصادي مشي — أجياد السد</h3><div class="hotel">المدينة: نسك المدينة / درة الإيمان / طيبة هيلز — 3 ليالي</div><div class="hotel">مكة: واحة الضيافة / العليان أجياد — 11 ليلة</div><table><tr><td>رباعي</td><td>43,500</td></tr><tr><td>ثلاثي</td><td>47,900</td></tr><tr><td>ثنائي</td><td>54,500</td></tr><tr><td>سينجل</td><td>74,900</td></tr><tr><td>طفل</td><td>32,500</td></tr><tr><td>رضيع</td><td>17,500</td></tr></table></div>
 </div>
 <div style="height:22px"></div>
@@ -336,7 +161,7 @@ header{background:rgba(3,50,44,.82)!important;backdrop-filter:blur(16px);-webkit
 <div class="container">
 <h2 class="section-title">فنادق مكة والمدينة</h2><p style="text-align:center;color:#6b716e;margin-top:-18px">أسماء الفنادق كما وردت في البرامج. الصور المعروضة صور توضيحية مرتبطة بمكة والمدينة والإقامة.</p>
 <div class="hotels">
-<div class="hotel-card"><div class="hotel-img" style="background-image:url('hotel.jpg')"></div><div>هيلتون سايفا<br><span class="stars">★★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=500&q=80')"></div><div>هيلتون سايفا<br><span class="stars">★★★★★</span></div></div>
 <div class="hotel-card"><div class="hotel-img" style="background-image:url('medina.jpg')"></div><div>العقيق ميلينيوم<br><span class="stars">★★★★★</span></div></div>
 <div class="hotel-card"><div class="hotel-img" style="background-image:url('hotel.jpg')"></div><div>كونكورد دار الخير<br><span class="stars">★★★★</span></div></div>
 <div class="hotel-card"><div class="hotel-img" style="background-image:url('hotel.jpg')"></div><div>الماسة جراند<br><span class="stars">★★★★</span></div></div>
