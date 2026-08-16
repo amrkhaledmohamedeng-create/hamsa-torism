@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>همسه للسياحة | الحج والعمرة والسياحة الدينية</title>
+<meta name="description" content="همسه للسياحة - برامج الحج والعمرة والسياحة الدينية، عمرة التيسير، تيسير رمضان، عمرة الكاش والعمرة بالقسط.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+:root{--green:#064d43;--green2:#0b6b5c;--gold:#d5a23a;--gold2:#f1c75b;--cream:#fbf7ef;--ink:#173b35;--muted:#6b716e;--white:#fff;--shadow:0 12px 35px rgba(0,0,0,.09)}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;font-family:Cairo,Arial,sans-serif;background:#fffdf8;color:var(--ink)}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,92%);margin:auto}
+header{position:sticky;top:0;z-index:50;background:rgba(4,61,53,.97);box-shadow:0 3px 18px #0002}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{height:58px;width:92px;object-fit:contain;background:#fff;border-radius:8px;padding:3px}
+nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+nav a{color:#fff;font-size:14px;font-weight:700}
+nav a:hover{color:var(--gold2)}
+.wa-top{background:#0d8f67;color:#fff;padding:8px 15px;border:1px solid var(--gold);border-radius:30px;font-weight:800;font-size:13px}
+.hero{min-height:520px;display:flex;align-items:center;position:relative;overflow:hidden;background:
+linear-gradient(90deg,rgba(255,248,230,.98) 0%,rgba(255,248,230,.87) 35%,rgba(255,248,230,.2) 65%,rgba(0,0,0,.12)),
+url('kaaba.jpg') center/cover}
+.hero-content{max-width:610px;padding:75px 0}
+.badge{display:inline-block;background:#fff8;border:1px solid #c69b43;color:var(--green);padding:7px 16px;border-radius:30px;font-weight:800}
+h1{font-size:clamp(38px,5vw,66px);line-height:1.15;margin:18px 0 10px;color:#111}
+h1 span{color:var(--green)}
+.hero p{font-size:19px;font-weight:700;max-width:570px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.btn{padding:12px 24px;border-radius:10px;font-weight:800;border:1px solid transparent;display:inline-flex;align-items:center;justify-content:center}
+.btn-gold{background:var(--gold);color:#fff}.btn-green{background:var(--green);color:#fff}.btn-light{background:#fff;color:var(--green);border-color:#ddd}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-42px;position:relative;z-index:2}
+.quick .item{background:#fff;border-radius:15px;padding:18px;text-align:center;box-shadow:var(--shadow);border-top:4px solid var(--gold)}
+.quick b{display:block;margin-bottom:5px}
+section{padding:62px 0}
+.section-title{text-align:center;font-size:32px;margin:0 0 30px;color:var(--green)}
+.section-title:after{content:"";display:block;width:75px;height:3px;background:var(--gold);margin:12px auto;border-radius:5px}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.card{background:#fff;border:1px solid #eadfca;border-radius:16px;overflow:hidden;box-shadow:0 7px 25px #0000000d;transition:.25s}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.card-img{height:155px;background-size:cover;background-position:center}
+.card-body{padding:17px}
+.card h3{margin:0 0 10px;font-size:19px;color:var(--green)}
+.card ul{padding:0 18px 0 0;margin:0;line-height:1.9;font-size:13px;color:#555}
+.price{margin-top:15px;background:var(--green);color:#fff;border-radius:10px;padding:9px;text-align:center;font-weight:900}
+.gold-card .price{background:var(--gold)}
+.purple .price{background:#5a3b87}
+.ramadan .price{background:#0d6c5b}
+.cash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cash{background:#fff;border:1px solid #e6ddcd;border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+.cash h3{color:var(--green);margin-top:0}
+.cash .hotel{font-weight:700;margin:9px 0}
+.cash table{width:100%;border-collapse:collapse;margin-top:12px}
+.cash td{border:1px solid #eadfca;padding:7px;text-align:center;font-weight:700}
+.cash td:first-child{background:#faf4e7}
+.flight-box{background:var(--green);color:#fff;border-radius:16px;padding:24px;box-shadow:var(--shadow)}
+.flight-box li{margin:8px 0}
+.hajj{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.hajj .box{padding:28px;border-radius:18px;color:#fff;min-height:220px;display:flex;flex-direction:column;justify-content:space-between}
+.hajj .box:nth-child(1){background:linear-gradient(135deg,#0b6b5c,#06463e)}
+.hajj .box:nth-child(2){background:linear-gradient(135deg,#d2a143,#a77720)}
+.hajj .box:nth-child(3){background:linear-gradient(135deg,#344a78,#202f58)}
+.hajj h3{font-size:25px;margin:0}
+.hajj ul{padding-right:18px;line-height:2}
+.notice{background:#fff8e9;border:1px solid #e6c778;padding:18px;border-radius:14px;margin-top:18px}
+.hotels{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.hotel-card{background:#fff;border-radius:13px;overflow:hidden;border:1px solid #eee;box-shadow:0 5px 18px #0001}
+.hotel-img{height:120px;background-size:cover;background-position:center}
+.hotel-card div:last-child{padding:10px;text-align:center;font-size:13px;font-weight:800}
+.stars{color:#f0aa20;letter-spacing:2px}
+.contact{background:linear-gradient(135deg,#073f38,#0b695b);color:#fff;border-radius:25px;padding:35px}
+.contact-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:18px;align-items:stretch}
+.contact-box{background:#ffffff12;border:1px solid #ffffff22;border-radius:18px;padding:25px}
+.contact-box h3{margin-top:0}
+.big-wa{font-size:25px;color:#ffe18a;font-weight:900;direction:ltr;text-align:center;display:block;margin:20px 0}
+.social{display:flex;gap:10px;justify-content:center;margin-top:20px}
+.social a{background:#fff;color:var(--green);padding:9px 15px;border-radius:10px;font-weight:800}
+footer{background:#043c35;color:#fff;padding:18px;text-align:center;font-size:13px}
+.float-wa{position:fixed;bottom:22px;left:22px;width:58px;height:58px;border-radius:50%;background:#19b878;color:#fff;display:flex;align-items:center;justify-content:center;font-size:29px;box-shadow:0 7px 22px #0004;z-index:100}
+.small{font-size:12px;color:#666}.ltr{direction:ltr;display:inline-block}
+@media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}.cash-grid,.hajj,.contact-grid{grid-template-columns:1fr}.hotels{grid-template-columns:repeat(3,1fr)}.quick{grid-template-columns:repeat(2,1fr)}nav{display:none}.hero{min-height:580px}.hero-content{padding:55px 0}.hero{background-position:60% center}}
+@media(max-width:520px){.cards{grid-template-columns:1fr}.hotels{grid-template-columns:repeat(2,1fr)}.quick{grid-template-columns:1fr 1fr}.hero p{font-size:16px}section{padding:45px 0}}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<img class="logo" src="logo.jpg" alt="همسه للسياحة">
+<nav>
+<a href="#home">الرئيسية</a><a href="#umrah">العمرة</a><a href="#hajj">الحج</a><a href="#cash">عمرة الكاش</a><a href="#hotels">الفنادق</a><a href="#contact">تواصل معنا</a>
+</nav>
+<a class="wa-top" href="https://wa.me/201011606466?text=السلام%20عليكم،%20أرغب%20في%20الاستفسار%20عن%20برامج%20همسه%20للسياحة" target="_blank">واتساب 01011606466</a>
+</div>
+</header>
+
+<main id="home">
+<section class="hero">
+<div class="container hero-content">
+<span class="badge">همسه للسياحة للحج والعمرة والسياحة الدينية</span>
+<h1>تسهّل عليك الطريق<br><span>لبيت الله الحرام</span></h1>
+<p>برامج متنوعة للحج والعمرة، من التيسير والتقسيط إلى برامج الكاش المميزة، مع خدمة ومتابعة من بداية الحجز حتى العودة.</p>
+<div class="hero-actions"><a class="btn btn-gold" href="#umrah">استكشف البرامج</a><a class="btn btn-green" href="https://wa.me/201011606466" target="_blank">استفسر على واتساب</a></div>
+</div>
+</section>
+
+<div class="container quick">
+<div class="item"><b>أسعار مناسبة</b><span>برامج تناسب ميزانيات مختلفة</span></div>
+<div class="item"><b>تسهيلات في السداد</b><span>خطط تيسير وتقسيط مرنة</span></div>
+<div class="item"><b>خدمة ومتابعة</b><span>إشراف إداري وديني</span></div>
+<div class="item"><b>حجز واستفسار</b><span>تواصل سريع عبر واتساب</span></div>
+</div>
+
+<section id="umrah">
+<div class="container">
+<h2 class="section-title">برامج العمرة</h2>
+<div class="cards">
+<div class="card"><div class="card-img" style="background-image:url('kaaba.jpg')"></div><div class="card-body"><h3>عمرة التيسير</h3><ul><li>1,000 أو 1,250 أو 1,500 جنيه شهريًا</li><li>على مدار 24 شهر</li><li>2,000 أو 2,500 أو 3,000 جنيه شهريًا</li><li>على مدار 12 شهر</li></ul><div class="price">ابدأ من 1,000 جنيه</div></div></div>
+<div class="card ramadan"><div class="card-img" style="background-image:url('ramadan.jpg')"></div><div class="card-body"><h3>تيسير رمضان</h3><ul><li>3,000 جنيه على 16 شهر</li><li>بدأ من شهر 6</li><li>2,500 جنيه على 20 شهر</li><li>بدأ من شهر 5</li></ul><div class="price">حجز مرن</div></div></div>
+<div class="card purple"><div class="card-img" style="background-image:url('installment.jpg')"></div><div class="card-body"><h3>العمرة بالقسط</h3><ul><li>اختار البرنامج</li><li>ادفع 50% أو 60%</li><li>قسط الباقي من 3 إلى 12 شهر</li><li>بدون تعقيد</li></ul><div class="price">3 - 12 شهر</div></div></div>
+<div class="card gold-card"><div class="card-img" style="background-image:url('hotel.jpg')"></div><div class="card-body"><h3>عمرة التيسير البلاتينوم</h3><ul><li>5,000 جنيه</li><li>على 12 شهر</li><li>برنامج مميز</li></ul><div class="price">5,000 × 12 شهر</div></div></div>
+<div class="card gold-card"><div class="card-img" style="background-image:url('medina.jpg')"></div><div class="card-body"><h3>عمرة التيسير الذهبية</h3><ul><li>4,000 جنيه</li><li>على 12 شهر</li><li>خيار مميز للتيسير</li></ul><div class="price">4,000 × 12 شهر</div></div></div>
+</div>
+<div class="notice"><b>ملحوظة تيسير رمضان:</b> لو حابب تحجز بعد بداية الحج، يمكنك دفع الشهور السابقة بأثر رجعي وفقًا لنظام الحجز المتاح.</div>
+</div>
+</section>
+
+<section id="hajj" style="background:#f8f3e8">
+<div class="container">
+<h2 class="section-title">برامج الحج</h2>
+<div class="hajj">
+<div class="box"><h3>الحج السياحي</h3><ul><li>برامج متنوعة ومميزة</li><li>خدمات مميزة للحجاج</li><li>إشراف ومتابعة</li></ul><a class="btn btn-light" href="#contact">استفسر عن التفاصيل</a></div>
+<div class="box"><h3>الحج الميسر</h3><ul><li>برنامج حج ميسر</li><li>خدمات متكاملة</li><li>أسعار وخيارات متعددة</li></ul><a class="btn btn-light" href="#contact">استفسر عن التفاصيل</a></div>
+<div class="box"><h3>الحج الميسر بالتقسيط</h3><ul><li>حتى 120,000 جنيه</li><li>تقسيط حتى 24 شهر</li><li>خطة سداد مرنة</li></ul><a class="btn btn-light" href="#contact">اطلب التفاصيل</a></div>
+</div>
+</div>
+</section>
+
+<section id="cash">
+<div class="container">
+<h2 class="section-title">عمرة الكاش</h2>
+<p style="text-align:center;font-weight:800">أسعار النصف الأول من شهر 9 فقط — للفروع المستفيدة من مطار برج العرب ومطار القاهرة</p>
+<div class="cash-grid">
+<div class="cash"><h3>ربع بخش — اقتصادي بالمواصلات</h3><div class="hotel">المدينة: نسك المدينة / درة الإيمان / طيبة هيلز — 3 ليالي</div><div class="hotel">مكة: قصر العليان / النخبة 1 / أبراج القصواء — 11 ليلة</div><table><tr><td>رباعي</td><td>41,500</td></tr><tr><td>ثلاثي</td><td>44,500</td></tr><tr><td>ثنائي</td><td>49,900</td></tr><tr><td>سينجل</td><td>65,500</td></tr><tr><td>طفل</td><td>32,500</td></tr><tr><td>رضيع</td><td>17,500</td></tr></table></div>
+<div class="cash"><h3>اقتصادي مشي — بير ليلي</h3><div class="hotel">المدينة: نسك المدينة / درة الإيمان / طيبة هيلز — 3 ليالي</div><div class="hotel">مكة: إعمار أفاق — 11 ليلة</div><table><tr><td>رباعي</td><td>43,000</td></tr><tr><td>ثلاثي</td><td>47,500</td></tr><tr><td>ثنائي</td><td>53,900</td></tr><tr><td>سينجل</td><td>73,900</td></tr><tr><td>طفل</td><td>32,500</td></tr><tr><td>رضيع</td><td>17,500</td></tr></table></div>
+<div class="cash"><h3>اقتصادي مشي — أجياد السد</h3><div class="hotel">المدينة: نسك المدينة / درة الإيمان / طيبة هيلز — 3 ليالي</div><div class="hotel">مكة: واحة الضيافة / العليان أجياد — 11 ليلة</div><table><tr><td>رباعي</td><td>43,500</td></tr><tr><td>ثلاثي</td><td>47,900</td></tr><tr><td>ثنائي</td><td>54,500</td></tr><tr><td>سينجل</td><td>74,900</td></tr><tr><td>طفل</td><td>32,500</td></tr><tr><td>رضيع</td><td>17,500</td></tr></table></div>
+</div>
+<div style="height:22px"></div>
+<h3 style="text-align:center;color:var(--green)">برامج الكاش 5 نجوم</h3>
+<div class="cash-grid">
+<div class="cash"><h3>5 نجوم — 4 ليالي المدينة + 5 ليالي مكة</h3><div class="hotel">الطيران: سعودي — القاهرة / المدينة / جدة / القاهرة</div><div class="hotel">المدينة: فندق الحرم / العقيق ميلينيوم — 4 ليالي بالأفطار</div><div class="hotel">مكة: هيلتون سايفا — 5 ليالي بالأفطار، أول مطل على الحرم</div><table><tr><td>رباعي</td><td>74,000</td></tr><tr><td>ثلاثي</td><td>80,000</td></tr><tr><td>ثنائي</td><td>88,000</td></tr></table></div>
+<div class="cash"><h3>5 نجوم — 3 ليالي المدينة + 4 ليالي مكة</h3><div class="hotel">الطيران: سعودي — القاهرة / المدينة / جدة / القاهرة</div><div class="hotel">المدينة: فندق الحرم / العقيق ميلينيوم — 3 ليالي بالأفطار</div><div class="hotel">مكة: هيلتون سايفا — 4 ليالي بالأفطار، أول مطل على الحرم</div><table><tr><td>رباعي</td><td>63,000</td></tr><tr><td>ثلاثي</td><td>67,500</td></tr><tr><td>ثنائي</td><td>77,000</td></tr></table></div>
+<div class="cash"><h3>اقتصادي مميز — 4 + 5 ليالي</h3><div class="hotel">الطيران: سعودي — القاهرة / المدينة / جدة / القاهرة</div><div class="hotel">المدينة: كونكورد دار الخير — 4 ليالي</div><div class="hotel">مكة: الماسة جراند — 5 ليالي، 400 متر من الحرم</div><table><tr><td>رباعي</td><td>47,000</td></tr><tr><td>ثلاثي</td><td>52,500</td></tr><tr><td>ثنائي</td><td>57,000</td></tr></table></div>
+</div>
+<div class="flight-box" style="margin-top:20px"><b>ملاحظات الطيران والأسعار:</b><ul><li>جميع الأسعار المعلنة للكاش الاقتصادي تم احتسابها على معامل الريال بـ 13.4 جنيه.</li><li>الطيران الخاص: إير كايرو، خط سير جدة - جدة.</li><li>في حال الطيران السعودي خط سير جدة - جدة: إضافة 600 جنيه للفرد.</li><li>عودة مدينة على إير كايرو: زيادة 600 جنيه حسب البرنامج.</li><li>عودة مدينة على الطيران الخاص: زيادة 2,500 جنيه حسب البرنامج.</li><li>عودة مدينة على الطيران السعودي: زيادة 2,500 جنيه.</li></ul></div>
+<div class="notice"><b>مواعيد الرحلات 5 نجوم:</b> 17 أغسطس — 31 أغسطس — 7 سبتمبر — 21 سبتمبر<br><b>مميزات البرنامج:</b> إشراف ديني وإداري، مزارات مكة والمدينة، أقرب مواقع للحرم، وخدمات 5 نجوم.</div>
+</div>
+</section>
+
+<section id="hotels" style="background:#f8f3e8">
+<div class="container">
+<h2 class="section-title">فنادق مكة والمدينة</h2><p style="text-align:center;color:#6b716e;margin-top:-18px">أسماء الفنادق كما وردت في البرامج. الصور المعروضة صور توضيحية مرتبطة بمكة والمدينة والإقامة.</p>
+<div class="hotels">
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=500&q=80')"></div><div>هيلتون سايفا<br><span class="stars">★★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('medina.jpg')"></div><div>العقيق ميلينيوم<br><span class="stars">★★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('hotel.jpg')"></div><div>كونكورد دار الخير<br><span class="stars">★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('hotel.jpg')"></div><div>الماسة جراند<br><span class="stars">★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('medina.jpg')"></div><div>نسك المدينة<br><span class="stars">★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('hotel.jpg')"></div><div>درة الإيمان<br><span class="stars">★★★★</span></div></div>
+</div>
+<div class="hotels" style="margin-top:12px">
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('medina.jpg')"></div><div>طيبة هيلز<br><span class="stars">★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('hotel.jpg')"></div><div>قصر العليان<br><span class="stars">★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('hotel.jpg')"></div><div>النخبة 1<br><span class="stars">★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('kaaba.jpg')"></div><div>أبراج القصواء<br><span class="stars">★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('hotel.jpg')"></div><div>إعمار أفاق<br><span class="stars">★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('hotel.jpg')"></div><div>واحة الضيافة<br><span class="stars">★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('hotel.jpg')"></div><div>العليان أجياد<br><span class="stars">★★★★</span></div></div>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<div class="contact">
+<h2 style="margin-top:0;text-align:center">تواصل معنا</h2>
+<div class="contact-grid">
+<div class="contact-box"><h3>واتساب</h3><p>للاستفسار عن الأسعار والحجز والبرامج، تواصل معنا مباشرة.</p><a class="big-wa" href="https://wa.me/201011606466?text=السلام%20عليكم،%20أرغب%20في%20الاستفسار%20عن%20برامج%20همسه%20للسياحة" target="_blank">01011606466</a><a class="btn btn-gold" style="width:100%" href="https://wa.me/201011606466" target="_blank">افتح واتساب</a></div>
+<div class="contact-box"><h3>نموذج الاستفسار السريع</h3><p>املأ النموذج وسيتواصل معك فريقنا في أسرع وقت.</p><a class="btn btn-light" style="width:100%" href="https://forms.gle/CxzhvKZaevhVdJKm8" target="_blank">اذهب للنموذج</a></div>
+<div class="contact-box"><h3>صفحتنا على Facebook</h3><p>تابع أحدث العروض والبرامج والأخبار على صفحتنا الرسمية.</p><a class="btn btn-light" style="width:100%" href="https://www.facebook.com/share/1Lif2TJvGg/" target="_blank">زيارة الصفحة</a></div>
+</div>
+<div class="social"><a href="https://wa.me/201011606466" target="_blank">WhatsApp</a><a href="https://www.facebook.com/share/1Lif2TJvGg/" target="_blank">Facebook</a></div>
+</div>
+</div>
+</section>
+</main>
+<a class="float-wa" href="https://wa.me/201011606466?text=السلام%20عليكم،%20أرغب%20في%20الاستفسار" target="_blank" aria-label="WhatsApp">◉</a>
+<footer>جميع الحقوق محفوظة © همسه للسياحة — الحج والعمرة والسياحة الدينية</footer>
+</body>
+</html>
