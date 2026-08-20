@@ -7,29 +7,41 @@
 <meta name="description" content="همسه للسياحة - برامج الحج والعمرة والسياحة الدينية، عمرة التيسير، تيسير رمضان، عمرة الكاش والعمرة بالقسط.">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
-:root{--green:#064d43;--green2:#0b6b5c;--gold:#d5a23a;--gold2:#f1c75b;--cream:#fbf7ef;--ink:#173b35;--muted:#6b716e;--white:#fff;--shadow:0 12px 35px rgba(0,0,0,.09)}
+:root{
+--green:#23418A;
+--green2:#2F63AE;
+--gold:#FACA12;
+--gold2:#FFD83D;
+--cream:#F4F7FF;
+--ink:#16244A;
+--muted:#64708A;
+--white:#fff;
+--dark:#152A63;
+--blue-light:#EAF1FF;
+--shadow:0 12px 35px rgba(21,42,99,.13)
+}
 *{box-sizing:border-box;scroll-behavior:smooth}
-body{margin:0;font-family:Cairo,Arial,sans-serif;background:#fffdf8;color:var(--ink)}
+body{margin:0;font-family:Cairo,Arial,sans-serif;background:#F8FAFF;color:var(--ink)}
 a{text-decoration:none;color:inherit}
 .container{width:min(1180px,92%);margin:auto}
-header{position:sticky;top:0;z-index:50;background:rgba(4,61,53,.97);box-shadow:0 3px 18px #0002}
+header{position:sticky;top:0;z-index:50;background:rgba(21,42,99,.97);box-shadow:0 3px 18px #0002}
 .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{height:58px;width:92px;object-fit:contain;background:#fff;border-radius:8px;padding:3px}
 nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
 nav a{color:#fff;font-size:14px;font-weight:700}
 nav a:hover{color:var(--gold2)}
-.wa-top{background:#0d8f67;color:#fff;padding:8px 15px;border:1px solid var(--gold);border-radius:30px;font-weight:800;font-size:13px}
+.wa-top{background:#23418A;color:#fff;padding:8px 15px;border:1px solid var(--gold);border-radius:30px;font-weight:800;font-size:13px}
 .hero{min-height:520px;display:flex;align-items:center;position:relative;overflow:hidden;background:
-linear-gradient(90deg,rgba(255,248,230,.98) 0%,rgba(255,248,230,.87) 35%,rgba(255,248,230,.2) 65%,rgba(0,0,0,.12)),
+linear-gradient(90deg,rgba(244,247,255,.98) 0%,rgba(244,247,255,.90) 35%,rgba(244,247,255,.25) 65%,rgba(21,42,99,.12)),
 url('kaaba.jpg') center/cover}
 .hero-content{max-width:610px;padding:75px 0}
 .badge{display:inline-block;background:#fff8;border:1px solid #c69b43;color:var(--green);padding:7px 16px;border-radius:30px;font-weight:800}
-h1{font-size:clamp(38px,5vw,66px);line-height:1.15;margin:18px 0 10px;color:#111}
+h1{font-size:clamp(38px,5vw,66px);line-height:1.15;margin:18px 0 10px;color:#152A63}
 h1 span{color:var(--green)}
 .hero p{font-size:19px;font-weight:700;max-width:570px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
 .btn{padding:12px 24px;border-radius:10px;font-weight:800;border:1px solid transparent;display:inline-flex;align-items:center;justify-content:center}
-.btn-gold{background:var(--gold);color:#fff}.btn-green{background:var(--green);color:#fff}.btn-light{background:#fff;color:var(--green);border-color:#ddd}
+.btn-gold{background:var(--gold);color:#fff}.btn-green{background:var(--green);color:#fff}.btn-light{background:#fff;color:var(--green);border-color:#DCE5F7}
 .quick{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-42px;position:relative;z-index:2}
 .quick .item{background:#fff;border-radius:15px;padding:18px;text-align:center;box-shadow:var(--shadow);border-top:4px solid var(--gold)}
 .quick b{display:block;margin-bottom:5px}
@@ -37,50 +49,59 @@ section{padding:62px 0}
 .section-title{text-align:center;font-size:32px;margin:0 0 30px;color:var(--green)}
 .section-title:after{content:"";display:block;width:75px;height:3px;background:var(--gold);margin:12px auto;border-radius:5px}
 .cards{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-.card{background:#fff;border:1px solid #eadfca;border-radius:16px;overflow:hidden;box-shadow:0 7px 25px #0000000d;transition:.25s}
+.card{background:#fff;border:1px solid #DCE5F7;border-radius:16px;overflow:hidden;box-shadow:0 7px 25px #0000000d;transition:.25s}
 .card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
 .card-img{height:155px;background-size:cover;background-position:center}
 .card-body{padding:17px}
 .card h3{margin:0 0 10px;font-size:19px;color:var(--green)}
-.card ul{padding:0 18px 0 0;margin:0;line-height:1.9;font-size:13px;color:#555}
+.card ul{padding:0 18px 0 0;margin:0;line-height:1.9;font-size:13px;color:#53617A}
 .price{margin-top:15px;background:var(--green);color:#fff;border-radius:10px;padding:9px;text-align:center;font-weight:900}
 .gold-card .price{background:var(--gold)}
-.purple .price{background:#5a3b87}
-.ramadan .price{background:#0d6c5b}
+.purple .price{background:#2F63AE}
+.ramadan .price{background:#23418A}
 .cash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.cash{background:#fff;border:1px solid #e6ddcd;border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+.cash{background:#fff;border:1px solid #DCE5F7;border-radius:16px;padding:20px;box-shadow:var(--shadow)}
 .cash h3{color:var(--green);margin-top:0}
 .cash .hotel{font-weight:700;margin:9px 0}
 .cash table{width:100%;border-collapse:collapse;margin-top:12px}
-.cash td{border:1px solid #eadfca;padding:7px;text-align:center;font-weight:700}
-.cash td:first-child{background:#faf4e7}
+.cash td{border:1px solid #DCE5F7;padding:7px;text-align:center;font-weight:700}
+.cash td:first-child{background:#F3F6FC}
 .flight-box{background:var(--green);color:#fff;border-radius:16px;padding:24px;box-shadow:var(--shadow)}
 .flight-box li{margin:8px 0}
 .hajj{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .hajj .box{padding:28px;border-radius:18px;color:#fff;min-height:220px;display:flex;flex-direction:column;justify-content:space-between}
-.hajj .box:nth-child(1){background:linear-gradient(135deg,#0b6b5c,#06463e)}
-.hajj .box:nth-child(2){background:linear-gradient(135deg,#d2a143,#a77720)}
-.hajj .box:nth-child(3){background:linear-gradient(135deg,#344a78,#202f58)}
+.hajj .box:nth-child(1){background:linear-gradient(135deg,#2F63AE,#152A63)}
+.hajj .box:nth-child(2){background:linear-gradient(135deg,#FFD83D,#D9A900)}
+.hajj .box:nth-child(3){background:linear-gradient(135deg,#23418A,#152A63)}
 .hajj h3{font-size:25px;margin:0}
 .hajj ul{padding-right:18px;line-height:2}
-.notice{background:#fff8e9;border:1px solid #e6c778;padding:18px;border-radius:14px;margin-top:18px}
+.notice{background:#FFF9D9;border:1px solid #FACA12;padding:18px;border-radius:14px;margin-top:18px}
 .hotels{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
 .hotel-card{background:#fff;border-radius:13px;overflow:hidden;border:1px solid #eee;box-shadow:0 5px 18px #0001}
 .hotel-img{height:120px;background-size:cover;background-position:center}
 .hotel-card div:last-child{padding:10px;text-align:center;font-size:13px;font-weight:800}
-.stars{color:#f0aa20;letter-spacing:2px}
-.contact{background:linear-gradient(135deg,#073f38,#0b695b);color:#fff;border-radius:25px;padding:35px}
+.stars{color:#FACA12;letter-spacing:2px}
+.contact{background:linear-gradient(135deg,#152A63,#23418A);color:#fff;border-radius:25px;padding:35px}
 .contact-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:18px;align-items:stretch}
 .contact-box{background:#ffffff12;border:1px solid #ffffff22;border-radius:18px;padding:25px}
 .contact-box h3{margin-top:0}
-.big-wa{font-size:25px;color:#ffe18a;font-weight:900;direction:ltr;text-align:center;display:block;margin:20px 0}
+.big-wa{font-size:25px;color:#FFD83D;font-weight:900;direction:ltr;text-align:center;display:block;margin:20px 0}
 .social{display:flex;gap:10px;justify-content:center;margin-top:20px}
 .social a{background:#fff;color:var(--green);padding:9px 15px;border-radius:10px;font-weight:800}
-footer{background:#043c35;color:#fff;padding:18px;text-align:center;font-size:13px}
-.float-wa{position:fixed;bottom:22px;left:22px;width:58px;height:58px;border-radius:50%;background:#19b878;color:#fff;display:flex;align-items:center;justify-content:center;font-size:29px;box-shadow:0 7px 22px #0004;z-index:100}
-.small{font-size:12px;color:#666}.ltr{direction:ltr;display:inline-block}
+footer{background:#152A63;color:#fff;padding:18px;text-align:center;font-size:13px}
+.float-wa{position:fixed;bottom:22px;left:22px;width:58px;height:58px;border-radius:50%;background:#23418A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:29px;box-shadow:0 7px 22px #0004;z-index:100}
+.small{font-size:12px;color:#64708A}.ltr{direction:ltr;display:inline-block}
 @media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}.cash-grid,.hajj,.contact-grid{grid-template-columns:1fr}.hotels{grid-template-columns:repeat(3,1fr)}.quick{grid-template-columns:repeat(2,1fr)}nav{display:none}.hero{min-height:580px}.hero-content{padding:55px 0}.hero{background-position:60% center}}
 @media(max-width:520px){.cards{grid-template-columns:1fr}.hotels{grid-template-columns:repeat(2,1fr)}.quick{grid-template-columns:1fr 1fr}.hero p{font-size:16px}section{padding:45px 0}}
+
+/* Logo-inspired visual identity: royal blue + luminous gold */
+header{border-bottom:2px solid var(--gold)}
+.btn-gold,.price,.quick .item{box-shadow:0 6px 18px rgba(250,202,18,.16)}
+.card,.cash,.hotel-card{background:rgba(255,255,255,.98)}
+.section-title{color:var(--green)}
+.section-title:after{background:linear-gradient(90deg,var(--green2),var(--gold))}
+.badge{background:rgba(255,255,255,.86);border-color:var(--gold);color:var(--green)}
+.notice{color:var(--ink)}
 </style>
 </head>
 <body>
@@ -125,7 +146,7 @@ footer{background:#043c35;color:#fff;padding:18px;text-align:center;font-size:13
 </div>
 </section>
 
-<section id="hajj" style="background:#f8f3e8">
+<section id="hajj" style="background:#EEF3FF">
 <div class="container">
 <h2 class="section-title">برامج الحج</h2>
 <div class="hajj">
@@ -157,7 +178,7 @@ footer{background:#043c35;color:#fff;padding:18px;text-align:center;font-size:13
 </div>
 </section>
 
-<section id="hotels" style="background:#f8f3e8">
+<section id="hotels" style="background:#EEF3FF">
 <div class="container">
 <h2 class="section-title">فنادق مكة والمدينة</h2><p style="text-align:center;color:#6b716e;margin-top:-18px">أسماء الفنادق كما وردت في البرامج. الصور المعروضة صور توضيحية مرتبطة بمكة والمدينة والإقامة.</p>
 <div class="hotels">
