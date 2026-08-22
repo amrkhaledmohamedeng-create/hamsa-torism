@@ -35,13 +35,13 @@ nav a:hover{color:var(--gold2)}
 linear-gradient(90deg,rgba(244,247,255,.98) 0%,rgba(244,247,255,.90) 35%,rgba(244,247,255,.25) 65%,rgba(21,42,99,.12)),
 url('kaaba.jpg') center/cover}
 .hero-content{max-width:610px;padding:75px 0}
-.badge{display:inline-block;background:#fff8;border:1px solid #c69b43;color:var(--green);padding:7px 16px;border-radius:30px;font-weight:800}
+.badge{display:inline-block;background:#fff8;border:1px solid var(--gold);color:var(--green);padding:7px 16px;border-radius:30px;font-weight:800}
 h1{font-size:clamp(38px,5vw,66px);line-height:1.15;margin:18px 0 10px;color:#152A63}
 h1 span{color:var(--green)}
 .hero p{font-size:19px;font-weight:700;max-width:570px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
 .btn{padding:12px 24px;border-radius:10px;font-weight:800;border:1px solid transparent;display:inline-flex;align-items:center;justify-content:center}
-.btn-gold{background:var(--gold);color:#fff}.btn-green{background:var(--green);color:#fff}.btn-light{background:#fff;color:var(--green);border-color:#DCE5F7}
+.btn-gold{background:var(--gold);color:var(--dark)}.btn-green{background:var(--green);color:#fff}.btn-light{background:#fff;color:var(--green);border-color:#DCE5F7}
 .quick{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-42px;position:relative;z-index:2}
 .quick .item{background:#fff;border-radius:15px;padding:18px;text-align:center;box-shadow:var(--shadow);border-top:4px solid var(--gold)}
 .quick b{display:block;margin-bottom:5px}
@@ -54,9 +54,9 @@ section{padding:62px 0}
 .card-img{height:155px;background-size:cover;background-position:center}
 .card-body{padding:17px}
 .card h3{margin:0 0 10px;font-size:19px;color:var(--green)}
-.card ul{padding:0 18px 0 0;margin:0;line-height:1.9;font-size:13px;color:#53617A}
+.card ul{padding:0 18px 0 0;margin:0;line-height:1.9;font-size:13px;color:var(--muted)}
 .price{margin-top:15px;background:var(--green);color:#fff;border-radius:10px;padding:9px;text-align:center;font-weight:900}
-.gold-card .price{background:var(--gold)}
+.gold-card .price{background:var(--gold);color:var(--dark)}
 .purple .price{background:#2F63AE}
 .ramadan .price{background:#23418A}
 .cash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -71,7 +71,7 @@ section{padding:62px 0}
 .hajj{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .hajj .box{padding:28px;border-radius:18px;color:#fff;min-height:220px;display:flex;flex-direction:column;justify-content:space-between}
 .hajj .box:nth-child(1){background:linear-gradient(135deg,#2F63AE,#152A63)}
-.hajj .box:nth-child(2){background:linear-gradient(135deg,#FFD83D,#D9A900)}
+.hajj .box:nth-child(2){background:linear-gradient(135deg,var(--gold2),var(--gold));color:var(--dark)}
 .hajj .box:nth-child(3){background:linear-gradient(135deg,#23418A,#152A63)}
 .hajj h3{font-size:25px;margin:0}
 .hajj ul{padding-right:18px;line-height:2}
@@ -146,7 +146,7 @@ header{border-bottom:2px solid var(--gold)}
 </div>
 </section>
 
-<section id="hajj" style="background:#EEF3FF">
+<section id="hajj" style="background:var(--blue-light)">
 <div class="container">
 <h2 class="section-title">برامج الحج</h2>
 <div class="hajj">
@@ -178,25 +178,25 @@ header{border-bottom:2px solid var(--gold)}
 </div>
 </section>
 
-<section id="hotels" style="background:#EEF3FF">
+<section id="hotels" style="background:var(--blue-light)">
 <div class="container">
-<h2 class="section-title">فنادق مكة والمدينة</h2><p style="text-align:center;color:#6b716e;margin-top:-18px">أسماء الفنادق كما وردت في البرامج. الصور المعروضة صور توضيحية مرتبطة بمكة والمدينة والإقامة.</p>
+<h2 class="section-title">فنادق مكة والمدينة</h2><p style="text-align:center;color:var(--muted);margin-top:-18px">أسماء الفنادق كما وردت في البرامج. الصور المعروضة صور توضيحية مرتبطة بمكة والمدينة والإقامة.</p>
 <div class="hotels">
-<div class="hotel-card"><div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=500&q=80')"></div><div>هيلتون سايفا<br><span class="stars">★★★★★</span></div></div>
-<div class="hotel-card"><div class="hotel-img" style="background-image:url('medina.jpg')"></div><div>العقيق ميلينيوم<br><span class="stars">★★★★★</span></div></div>
-<div class="hotel-card"><div class="hotel-img" style="background-image:url('hotel.jpg')"></div><div>كونكورد دار الخير<br><span class="stars">★★★★</span></div></div>
-<div class="hotel-card"><div class="hotel-img" style="background-image:url('hotel.jpg')"></div><div>الماسة جراند<br><span class="stars">★★★★</span></div></div>
-<div class="hotel-card"><div class="hotel-img" style="background-image:url('medina.jpg')"></div><div>نسك المدينة<br><span class="stars">★★★★</span></div></div>
-<div class="hotel-card"><div class="hotel-img" style="background-image:url('hotel.jpg')"></div><div>درة الإيمان<br><span class="stars">★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1711743266323-5badf42d4797?auto=format&fit=crop&w=500&q=80')"></div><div>هيلتون سايفا<br><span class="stars">★★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1551016043-06ec2173531b?auto=format&fit=crop&w=500&q=80')"></div><div>العقيق ميلينيوم<br><span class="stars">★★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1723465308831-29da05e011f3?auto=format&fit=crop&w=500&q=80')"></div><div>كونكورد دار الخير<br><span class="stars">★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1536269404660-0a8d4e88bf1b?auto=format&fit=crop&w=500&q=80')"></div><div>الماسة جراند<br><span class="stars">★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1607320895054-c5c543e9a069?auto=format&fit=crop&w=500&q=80')"></div><div>نسك المدينة<br><span class="stars">★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1692153142886-9881d0457b82?auto=format&fit=crop&w=500&q=80')"></div><div>درة الإيمان<br><span class="stars">★★★★</span></div></div>
 </div>
 <div class="hotels" style="margin-top:12px">
-<div class="hotel-card"><div class="hotel-img" style="background-image:url('medina.jpg')"></div><div>طيبة هيلز<br><span class="stars">★★★★</span></div></div>
-<div class="hotel-card"><div class="hotel-img" style="background-image:url('hotel.jpg')"></div><div>قصر العليان<br><span class="stars">★★★★</span></div></div>
-<div class="hotel-card"><div class="hotel-img" style="background-image:url('hotel.jpg')"></div><div>النخبة 1<br><span class="stars">★★★★</span></div></div>
-<div class="hotel-card"><div class="hotel-img" style="background-image:url('kaaba.jpg')"></div><div>أبراج القصواء<br><span class="stars">★★★★</span></div></div>
-<div class="hotel-card"><div class="hotel-img" style="background-image:url('hotel.jpg')"></div><div>إعمار أفاق<br><span class="stars">★★★★</span></div></div>
-<div class="hotel-card"><div class="hotel-img" style="background-image:url('hotel.jpg')"></div><div>واحة الضيافة<br><span class="stars">★★★★</span></div></div>
-<div class="hotel-card"><div class="hotel-img" style="background-image:url('hotel.jpg')"></div><div>العليان أجياد<br><span class="stars">★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1664111147905-5d2ecc5fb114?auto=format&fit=crop&w=500&q=80')"></div><div>طيبة هيلز<br><span class="stars">★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1758193783649-13371d7fb8dd?auto=format&fit=crop&w=500&q=80')"></div><div>قصر العليان<br><span class="stars">★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1742844552193-2fd3425cd26d?auto=format&fit=crop&w=500&q=80')"></div><div>النخبة 1<br><span class="stars">★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1472510771109-39b92752a6b9?auto=format&fit=crop&w=500&q=80')"></div><div>أبراج القصواء<br><span class="stars">★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1677129667171-92abd8740fa3?auto=format&fit=crop&w=500&q=80')"></div><div>إعمار أفاق<br><span class="stars">★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1720540244592-b4124532b318?auto=format&fit=crop&w=500&q=80')"></div><div>واحة الضيافة<br><span class="stars">★★★★</span></div></div>
+<div class="hotel-card"><div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1768346564825-6f90c0b89e2e?auto=format&fit=crop&w=500&q=80')"></div><div>العليان أجياد<br><span class="stars">★★★★</span></div></div>
 </div>
 </div>
 </section>
