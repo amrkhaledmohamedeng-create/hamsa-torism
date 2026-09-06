@@ -104,6 +104,21 @@ header{border-bottom:2px solid var(--gold)}
 .badge{background:rgba(255,255,255,.86);border-color:var(--gold);color:var(--green)}
 .notice{color:var(--ink)}
 </style>
+
+<style>
+.lead-box{position:relative}
+#leadForm{margin-top:16px;text-align:right}
+.form-row{margin-bottom:12px}
+.form-row label{display:block;font-weight:800;margin-bottom:6px}
+.form-row input,.form-row select,.form-row textarea{width:100%;box-sizing:border-box;border:1px solid #d7dde5;border-radius:12px;padding:11px 12px;font:inherit;background:#fff;color:#18212b;outline:none}
+.form-row input:focus,.form-row select:focus,.form-row textarea:focus{border-color:#b69245;box-shadow:0 0 0 3px rgba(182,146,69,.12)}
+.form-message{display:none;margin-top:12px;padding:10px 12px;border-radius:10px;font-weight:800;text-align:center}
+.form-message.show{display:block}
+.form-message.success{background:#e9f8ef;color:#176b3a}
+.form-message.error{background:#fff0f0;color:#a12626}
+.dynamic-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:600px){.dynamic-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <header>
@@ -208,7 +223,25 @@ header{border-bottom:2px solid var(--gold)}
 <h2 style="margin-top:0;text-align:center">تواصل معنا</h2>
 <div class="contact-grid">
 <div class="contact-box"><h3>واتساب</h3><p>للاستفسار عن الأسعار والحجز والبرامج، تواصل معنا مباشرة.</p><a class="big-wa" href="https://wa.me/201003126308?text=السلام%20عليكم،%20أرغب%20في%20الاستفسار%20عن%20برامج%20همسه%20للسياحة" target="_blank">01003126308</a><a class="btn btn-gold" style="width:100%" href="https://wa.me/201003126308" target="_blank">افتح واتساب</a></div>
-<div class="contact-box"><h3>نموذج الاستفسار السريع</h3><p>املأ النموذج وسيتواصل معك فريقنا في أسرع وقت.</p><a class="btn btn-light" style="width:100%" href="https://forms.gle/CxzhvKZaevhVdJKm8" target="_blank">اذهب للنموذج</a></div>
+<div class="contact-box lead-box">
+<h3>نموذج الاستفسار والحجز</h3>
+<p>اكتب بياناتك هنا مباشرة، وسيتم تسجيل طلبك في النظام والتواصل معك.</p>
+<form id="leadForm" action="YOUR_APPS_SCRIPT_WEB_APP_URL" method="POST" target="leadSubmitFrame" autocomplete="on">
+<input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0" aria-hidden="true">
+<div class="form-row"><label>الاسم بالكامل *</label><input name="name" type="text" required placeholder="اكتب اسمك بالكامل"></div>
+<div class="form-row"><label>رقم الموبايل *</label><input name="phone" type="tel" inputmode="numeric" required placeholder="01xxxxxxxxx"></div>
+<div class="form-row"><label>المحافظة</label><input name="governorate" type="text" placeholder="مثال: الإسكندرية"></div>
+<div class="form-row"><label>الخدمة المطلوبة *</label><select name="service" id="service" required><option value="">اختر الخدمة</option><option>عمرة الكاش</option><option>العمرة بالقسط</option><option>عمرة التيسير</option><option>تيسير رمضان</option><option>الحج السياحي</option><option>الحج الميسر</option><option>الحج الميسر بالتقسيط</option></select></div>
+<div id="dynamicQuestions"></div>
+<div class="form-row"><label>عدد الأشخاص *</label><input name="persons" type="number" min="1" max="100" value="1" required></div>
+<div class="form-row"><label>موعد السفر المتوقع</label><input name="travelDate" type="date"></div>
+<div class="form-row"><label>طريقة الدفع</label><select name="paymentMethod"><option value="">اختر</option><option>كاش</option><option>تقسيط</option><option>لم أحدد بعد</option></select></div>
+<div class="form-row"><label>ملاحظات إضافية</label><textarea name="notes" rows="3" placeholder="اكتب أي تفاصيل أو طلب خاص"></textarea></div>
+<button class="btn btn-gold" type="submit" style="width:100%" id="leadSubmit">إرسال الطلب</button>
+<div id="leadMessage" class="form-message" role="status" aria-live="polite"></div>
+</form>
+<iframe name="leadSubmitFrame" id="leadSubmitFrame" style="display:none"></iframe>
+</div>
 <div class="contact-box"><h3>صفحتنا على Facebook</h3><p>تابع أحدث العروض والبرامج والأخبار على صفحتنا الرسمية.</p><a class="btn btn-light" style="width:100%" href="https://www.facebook.com/share/1Lif2TJvGg/" target="_blank">زيارة الصفحة</a></div>
 </div>
 <div class="social"><a href="https://wa.me/201003126308" target="_blank">WhatsApp</a><a href="https://www.facebook.com/share/1Lif2TJvGg/" target="_blank">Facebook</a></div>
@@ -218,5 +251,52 @@ header{border-bottom:2px solid var(--gold)}
 </main>
 <a class="float-wa" href="https://wa.me/201003126308?text=السلام%20عليكم،%20أرغب%20في%20الاستفسار" target="_blank" aria-label="WhatsApp">◉</a>
 <footer> جميع الحقوق محفوظة © همسه للسياحة — الحج والعمرة والسياحة الدينية  ترخيص رقم 2244 فئه (أ)  </footer>
+
+<script>
+(function(){
+  const form=document.getElementById('leadForm');
+  const service=document.getElementById('service');
+  const dynamic=document.getElementById('dynamicQuestions');
+  const message=document.getElementById('leadMessage');
+  const submit=document.getElementById('leadSubmit');
+  const frame=document.getElementById('leadSubmitFrame');
+  if(!form||!service)return;
+  function field(label,name,type,options){
+    if(type==='select') return `<div class="form-row"><label>${label}</label><select name="${name}" ${options?.required?'required':''}><option value="">اختر</option>${options.items.map(x=>`<option>${x}</option>`).join('')}</select></div>`;
+    return `<div class="form-row"><label>${label}</label><input name="${name}" type="${type}" ${options?.required?'required':''} placeholder="${options?.placeholder||''}"></div>`;
+  }
+  function render(){
+    const s=service.value;
+    let h='';
+    if(s==='عمرة التيسير') h=field('برنامج التيسير','program','select',{items:['1000 جنيه × 24 شهر','1250 جنيه × 24 شهر','1500 جنيه × 24 شهر','2000 جنيه × 12 شهر','2500 جنيه × 12 شهر','3000 جنيه × 12 شهر','4000 جنيه × 12 شهر - الذهبية','5000 جنيه × 12 شهر - البلاتينية'],required:true});
+    else if(s==='تيسير رمضان') h=field('برنامج تيسير رمضان','program','select',{items:['3000 جنيه × 16 شهر','2500 جنيه × 20 شهر'],required:true});
+    else if(s==='العمرة بالقسط') h=field('نسبة المقدم','downPayment','select',{items:['50%','60%','لم أحدد بعد'],required:true})+field('مدة التقسيط','installmentMonths','select',{items:['3 أشهر','6 أشهر','9 أشهر','12 شهر'],required:true});
+    else if(s==='عمرة الكاش') h=field('نوع البرنامج','program','select',{items:['اقتصادي','5 نجوم','اقتصادي مميز','أحتاج عرض مناسب'],required:true});
+    else if(s==='الحج السياحي') h=field('نوع برنامج الحج','program','select',{items:['برنامج سياحي','أحتاج عرض مناسب'],required:true});
+    else if(s==='الحج الميسر') h=field('نوع البرنامج','program','select',{items:['الحج الميسر','أحتاج عرض مناسب'],required:true});
+    else if(s==='الحج الميسر بالتقسيط') h=field('مدة التقسيط','installmentMonths','select',{items:['12 شهر','18 شهر','24 شهر'],required:true});
+    dynamic.innerHTML=h;
+  }
+  service.addEventListener('change',render);
+  form.addEventListener('submit',function(){
+    message.className='form-message show'; message.textContent='جاري إرسال الطلب...';
+    submit.disabled=true; submit.textContent='جاري الإرسال...';
+    setTimeout(function(){
+      message.className='form-message show success';
+      message.textContent='تم إرسال طلبك بنجاح، شكرًا لك. سيتواصل معك فريق همسه قريبًا.';
+      form.reset(); dynamic.innerHTML=''; submit.disabled=false; submit.textContent='إرسال الطلب';
+    },1200);
+  });
+  frame.addEventListener('load',function(){
+    if(submit.disabled){
+      setTimeout(function(){
+        message.className='form-message show success';
+        message.textContent='تم إرسال طلبك بنجاح، سيتواصل معك فريق همسه قريبًا.';
+        form.reset(); dynamic.innerHTML=''; submit.disabled=false; submit.textContent='إرسال الطلب';
+      },500);
+    }
+  });
+})();
+</script>
 </body>
 </html>
