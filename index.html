@@ -268,15 +268,34 @@ header{border-bottom:2px solid var(--gold)}
     if(el) el.innerHTML = '<div class="notice" style="grid-column:1/-1;text-align:center">' + esc(text) + '</div>';
   }
 
-  function renderUmrah(offers){
+  function getOriginalCards(el, selector){
+    if(!el) return [];
+    return Array.from(el.querySelectorAll(':scope > ' + selector)).map(function(node){
+      const title = node.querySelector('h3') ? node.querySelector('h3').textContent.trim() : '';
+      return { title: title, html: node.outerHTML };
+    });
+  }
+
+  function mergeOffersWithOriginal(offers, originals){
+    const apiTitles = new Set(offers.map(function(o){ return String(o.title || '').trim(); }));
+    const result = offers.slice();
+    originals.forEach(function(item){
+      if(!apiTitles.has(item.title)) result.push({__originalHtml:item.html, title:item.title});
+    });
+    return result;
+  }
+
+  function renderUmrah(offers, originals){
     const el = document.getElementById('umrahOffers');
     if(!el) return;
-    if(!offers.length){
+    const merged = mergeOffersWithOriginal(offers, originals || []);
+    if(!merged.length){
       renderEmpty(el, 'لا توجد عروض عمرة مفعلة حاليًا.');
       return;
     }
 
-    el.innerHTML = offers.map(function(o,i){
+    el.innerHTML = merged.map(function(o,i){
+      if(o.__originalHtml) return o.__originalHtml;
       const cls = ['','ramadan','purple','gold-card','gold-card'][i % 5];
       return `
         <div class="card ${cls}">
@@ -293,15 +312,17 @@ header{border-bottom:2px solid var(--gold)}
     }).join('');
   }
 
-  function renderHajj(offers){
+  function renderHajj(offers, originals){
     const el = document.getElementById('hajjOffers');
     if(!el) return;
-    if(!offers.length){
+    const merged = mergeOffersWithOriginal(offers, originals || []);
+    if(!merged.length){
       renderEmpty(el, 'لا توجد عروض حج مفعلة حاليًا.');
       return;
     }
 
-    el.innerHTML = offers.map(function(o,i){
+    el.innerHTML = merged.map(function(o,i){
+      if(o.__originalHtml) return o.__originalHtml;
       return `
         <div class="box">
           ${o.badge ? `<span class="badge">${esc(o.badge)}</span>` : ''}
@@ -314,15 +335,17 @@ header{border-bottom:2px solid var(--gold)}
     }).join('');
   }
 
-  function renderCash(offers){
+  function renderCash(offers, originals){
     const el = document.getElementById('cashOffers');
     if(!el) return;
-    if(!offers.length){
+    const merged = mergeOffersWithOriginal(offers, originals || []);
+    if(!merged.length){
       renderEmpty(el, 'لا توجد عروض عمرة كاش مفعلة حاليًا.');
       return;
     }
 
-    el.innerHTML = offers.map(function(o,i){
+    el.innerHTML = merged.map(function(o,i){
+      if(o.__originalHtml) return o.__originalHtml;
       return `
         <div class="cash">
           ${o.badge ? `<span class="badge">${esc(o.badge)}</span>` : ''}
@@ -354,9 +377,18 @@ header{border-bottom:2px solid var(--gold)}
       const hajj = data.offers.filter(o => o.section === 'hajj');
       const cash = data.offers.filter(o => o.section === 'cash');
 
-      renderUmrah(umrah);
-      renderHajj(hajj);
-      renderCash(cash);
+      const umrahEl = document.getElementById('umrahOffers');
+      const hajjEl = document.getElementById('hajjOffers');
+      const cashEl = document.getElementById('cashOffers');
+      const originalUmrah = getOriginalCards(umrahEl, '.card');
+      const originalHajj = getOriginalCards(hajjEl, '.box');
+      const originalCash = getOriginalCards(cashEl, '.cash');
+
+      // لا نحذف العروض الموجودة في الملف: عروض لوحة التحكم تُحدّث نفس الاسم،
+      // والعروض الجديدة تُضاف بجانب العروض الأصلية.
+      renderUmrah(umrah, originalUmrah);
+      renderHajj(hajj, originalHajj);
+      renderCash(cash, originalCash);
 
       // Keep the inquiry form in sync with the offer titles.
       const programMap = {
