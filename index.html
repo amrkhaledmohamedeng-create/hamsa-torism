@@ -30,7 +30,7 @@ h1{font-size:clamp(38px,5vw,66px);line-height:1.15;margin:18px 0 10px;color:#152
 h1 span{color:var(--green)}
 .hero p{font-size:19px;font-weight:700;max-width:570px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
-.btn{padding:12px 24px;border-radius:10px;font-weight:800;border:1px solid transparent;display:inline-flex;align-items:center;justify-content:center}
+.btn{padding:12px 24px;border-radius:10px;font-weight:800;border:1px solid transparent;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
 .btn-gold{background:var(--gold);color:var(--dark)}.btn-green{background:var(--green);color:#fff}.btn-light{background:#fff;color:var(--green);border-color:#DCE5F7}
 .quick{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-42px;position:relative;z-index:2}
 .quick .item{background:#fff;border-radius:15px;padding:18px;text-align:center;box-shadow:var(--shadow);border-top:4px solid var(--gold)}
@@ -205,7 +205,7 @@ header{border-bottom:2px solid var(--gold)}
 <div class="contact-box lead-box">
 <h3>نموذج الاستفسار والحجز</h3>
 <p>اكتب بياناتك هنا مباشرة، وسيتم تسجيل طلبك في النظام والتواصل معك.</p>
-<form id="leadForm" action="https://script.google.com/macros/s/AKfycbw_cCB2H9ndKYBI0XWhOO-mYdD7en91v1y9SezPU3qJE64aAXhtbH54pMdTuSpUCTA7nA/exec" method="POST" target="leadSubmitFrame" autocomplete="on">
+<form id="leadForm" action="https://script.google.com/macros/s/AKfycbw_cCB2H9ndKYBI0XWhOO-mYdD7en91v1y9SezPU3qJE64aAXhtbH54pMdTuSpUCTA7nA/exec" method="POST" autocomplete="off" novalidate>
 <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0" aria-hidden="true">
 <div class="form-row"><label>الاسم بالكامل *</label><input name="name" type="text" required placeholder="اكتب اسمك بالكامل"></div>
 <div class="form-row"><label>رقم الموبايل *</label><input name="phone" type="tel" inputmode="numeric" required placeholder="01xxxxxxxxx"></div>
@@ -219,7 +219,6 @@ header{border-bottom:2px solid var(--gold)}
 <button class="btn btn-gold" type="submit" style="width:100%" id="leadSubmit">إرسال الطلب</button>
 <div id="leadMessage" class="form-message" role="status" aria-live="polite"></div>
 </form>
-<iframe name="leadSubmitFrame" id="leadSubmitFrame" style="display:none"></iframe>
 </div>
 <div class="contact-box"><h3>صفحتنا على Facebook</h3><p>تابع أحدث العروض والبرامج والأخبار على صفحتنا الرسمية.</p><a class="btn btn-light" style="width:100%" href="https://www.facebook.com/share/1Lif2TJvGg/" target="_blank">زيارة الصفحة</a></div>
 </div>
@@ -231,6 +230,7 @@ header{border-bottom:2px solid var(--gold)}
 <a class="float-wa" href="https://wa.me/201003126308?text=السلام%20عليكم،%20أرغب%20في%20الاستفسار" target="_blank" aria-label="WhatsApp">◉</a>
 <footer> جميع الحقوق محفوظة © همسه للسياحة — الحج والعمرة والسياحة الدينية  ترخيص رقم 2244 فئه (أ)  </footer>
 
+<!-- ================== نموذج الحجز: إرسال حقيقي مع رسالة نجاح/خطأ صادقة ================== -->
 <script>
 (function(){
   var form=document.getElementById('leadForm');
@@ -238,18 +238,18 @@ header{border-bottom:2px solid var(--gold)}
   var dynamic=document.getElementById('dynamicQuestions');
   var message=document.getElementById('leadMessage');
   var submit=document.getElementById('leadSubmit');
-  var frame=document.getElementById('leadSubmitFrame');
   if(!form||!service)return;
+
   function field(label,name,type,options){
     if(type==='select'){
       var opts=options.items.map(function(x){return '<option>'+x+'</option>';}).join('');
       return '<div class="form-row"><label>'+label+'</label><select name="'+name+'" '+(options.required?'required':'')+'><option value="">اختر</option>'+opts+'</select></div>';
     }
-    return '<div class="form-row"><label>'+label+'</label><input name="'+name+'" type="'+type+'" '+(options&&options.required?'required':'')+' placeholder="'+(options&&options.placeholder||'')+'"></div>';
+    return '<div class="form-row"><label>'+label+'</label><input name="'+name+'" type="'+type+'" '+(options&&options.required?'required':'')+' placeholder="'+((options&&options.placeholder)||'')+'"></div>';
   }
+
   function render(){
-    var s=service.value;
-    var h='';
+    var s=service.value, h='';
     if(s==='عمرة التيسير') h=field('برنامج التيسير','program','select',{items:['1000 جنيه × 24 شهر','1250 جنيه × 24 شهر','1500 جنيه × 24 شهر','2000 جنيه × 12 شهر','2500 جنيه × 12 شهر','3000 جنيه × 12 شهر','4000 جنيه × 12 شهر - الذهبية','5000 جنيه × 12 شهر - البلاتينية'],required:true});
     else if(s==='تيسير رمضان') h=field('برنامج تيسير رمضان','program','select',{items:['3000 جنيه × 16 شهر','2500 جنيه × 20 شهر'],required:true});
     else if(s==='العمرة بالقسط') h=field('نسبة المقدم','downPayment','select',{items:['50%','60%','لم أحدد بعد'],required:true})+field('مدة التقسيط','installmentMonths','select',{items:['3 أشهر','6 أشهر','9 أشهر','12 شهر'],required:true});
@@ -260,23 +260,47 @@ header{border-bottom:2px solid var(--gold)}
     dynamic.innerHTML=h;
   }
   service.addEventListener('change',render);
-  form.addEventListener('submit',function(){
-    message.className='form-message show'; message.textContent='جاري إرسال الطلب...';
+
+  function show(kind,text){
+    message.className='form-message show'+(kind?' '+kind:'');
+    message.textContent=text;
+  }
+
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+
+    var name=(form.name.value||'').trim();
+    var phone=(form.phone.value||'').replace(/[\s-]/g,'');
+    var svc=(service.value||'').trim();
+
+    if(!name){ show('error','من فضلك اكتب الاسم بالكامل'); return; }
+    if(!/^01\d{9}$/.test(phone)){ show('error','رقم الموبايل لازم يكون 11 رقم ويبدأ بـ 01'); return; }
+    if(!svc){ show('error','من فضلك اختر الخدمة المطلوبة'); return; }
+
+    show('','جاري إرسال الطلب...');
     submit.disabled=true; submit.textContent='جاري الإرسال...';
-    setTimeout(function(){
-      message.className='form-message show success';
-      message.textContent='تم إرسال طلبك بنجاح، شكرًا لك. سيتواصل معك فريق همسه قريبًا.';
-      form.reset(); dynamic.innerHTML=''; submit.disabled=false; submit.textContent='إرسال الطلب';
-    },1200);
-  });
-  frame.addEventListener('load',function(){
-    if(submit.disabled){
-      setTimeout(function(){
-        message.className='form-message show success';
-        message.textContent='تم إرسال طلبك بنجاح، سيتواصل معك فريق همسه قريبًا.';
-        form.reset(); dynamic.innerHTML=''; submit.disabled=false; submit.textContent='إرسال الطلب';
-      },500);
-    }
+
+    var data=new URLSearchParams(new FormData(form));
+    data.set('action','lead');
+    data.set('phone',phone);
+
+    fetch(form.action,{method:'POST',body:data})
+      .then(function(r){ return r.json(); })
+      .then(function(res){
+        if(res && res.ok){
+          show('success','تم إرسال طلبك بنجاح، سيتواصل معك فريق همسه قريبًا.');
+          form.reset(); dynamic.innerHTML='';
+        }else{
+          show('error','لم يتم الإرسال: '+((res && res.error) || 'خطأ غير معروف'));
+        }
+      })
+      .catch(function(err){
+        show('error','تعذر الاتصال بالسيرفر. برجاء المحاولة لاحقًا أو التواصل على واتساب 01003126308');
+        console.error('Lead submit error:',err);
+      })
+      .finally(function(){
+        submit.disabled=false; submit.textContent='إرسال الطلب';
+      });
   });
 })();
 </script>
