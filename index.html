@@ -164,14 +164,14 @@ header{border-bottom:2px solid var(--gold)}
 <h2 class="section-title">عمرة الكاش</h2>
 <p style="text-align:center;font-weight:800">أسعار النصف الأول من شهر 9 فقط — للفروع المستفيدة من مطار برج العرب ومطار القاهرة</p>
 <div id="cashCards">
-<div class="cash-grid">
+<div class="cash-grid" id="cashGrid">
 <div class="cash"><h3>ريع بخش — اقتصادي بالمواصلات</h3><div class="hotel">المدينة: نسك المدينة / درة الإيمان / طيبة هيلز — 3 ليالي</div><div class="hotel">مكة: قصر العليان / النخبة 1 / أبراج القصواء — 11 ليلة</div><table><tr><td>رباعي</td><td>40,500</td></tr><tr><td>ثلاثي</td><td>43,500</td></tr><tr><td>ثنائي</td><td>48,900</td></tr><tr><td>سينجل</td><td>64,500</td></tr><tr><td>طفل</td><td>31,500</td></tr><tr><td>رضيع</td><td>17,500</td></tr></table></div>
 <div class="cash"><h3> اقتصادي مشي — بير بليلة</h3><div class="hotel">المدينة: نسك المدينة / درة الإيمان / طيبة هيلز — 3 ليالي</div><div class="hotel">مكة: إعمار أفاق — 11 ليلة</div><table><tr><td>رباعي</td><td>42,000</td></tr><tr><td>ثلاثي</td><td>46,500</td></tr><tr><td>ثنائي</td><td>52,900</td></tr><tr><td>سينجل</td><td>72,900</td></tr><tr><td>طفل</td><td>31,500</td></tr><tr><td>رضيع</td><td>17,500</td></tr></table></div>
 <div class="cash"><h3>اقتصادي مشي — أجياد السد</h3><div class="hotel">المدينة: نسك المدينة / درة الإيمان / طيبة هيلز — 3 ليالي</div><div class="hotel">مكة: واحة الضيافة / العليان أجياد — 11 ليلة</div><table><tr><td>رباعي</td><td>42,500</td></tr><tr><td>ثلاثي</td><td>46,900</td></tr><tr><td>ثنائي</td><td>53,500</td></tr><tr><td>سينجل</td><td>73,900</td></tr><tr><td>طفل</td><td>31,500</td></tr><tr><td>رضيع</td><td>17,500</td></tr></table></div>
 </div>
 <div style="height:22px"></div>
 <h3 style="text-align:center;color:var(--green)">برامج الكاش 5 نجوم</h3>
-<div class="cash-grid">
+<div class="cash-grid" id="cash5Grid">
 <div class="cash"><h3>5 نجوم أ — 3 ليالي المدينة + 4 ليالي مكة</h3><div class="hotel">الطيران: سعودي — القاهرة / المدينة / جدة / القاهرة</div><div class="hotel">المدينة: فندق الحرم  — 3 ليالي بالأفطار</div><div class="hotel">مكة: الصفوه البرج الثالث — 4 ليالي بالأفطار، أول مطل على الحرم</div><table><tr><td>رباعي</td><td>66,900</td></tr><tr><td>ثلاثي</td><td>70,900</td></tr><tr><td>ثنائي</td><td>79,900</td></tr></table></div>
 <div class="cash"><h3>5 نجوم ب — 3 ليالي المدينة + 4 ليالي مكة</h3><div class="hotel">الطيران: سعودي — القاهرة / المدينة / جدة / القاهرة</div><div class="hotel">المدينة:  دره الايمان — 3 ليالي بالأفطار</div><div class="hotel">مكة: الشهداء — 4 ليالي بالأفطار، أول مطل على الحرم</div><table><tr><td>رباعي</td><td>55,500</td></tr><tr><td>ثلاثي</td><td>58,900</td></tr><tr><td>ثنائي</td><td>64,500</td></tr></table></div>
 <div class="cash"><h3>اقتصادي مميز — 4 + 5 ليالي</h3><div class="hotel">الطيران: سعودي — القاهرة / المدينة / جدة / القاهرة</div><div class="hotel">المدينة: كونكورد دار الخير — 4 ليالي</div><div class="hotel">مكة: الماسة جراند — 5 ليالي، 400 متر من الحرم</div><table><tr><td>رباعي</td><td>47,000</td></tr><tr><td>ثلاثي</td><td>50,900</td></tr><tr><td>ثنائي</td><td>57,900</td></tr></table></div>
@@ -305,107 +305,98 @@ header{border-bottom:2px solid var(--gold)}
 })();
 </script>
 
-<!-- ================== تحميل ديناميكي لعروض العمرة والحج وعمرة الكاش من لوحة التحكم ================== -->
+<!-- ============ تحميل العروض من لوحة التعديل مع الحفاظ على نفس الشكل ============ -->
 <script>
 (function(){
-  // ضع هنا رابط Apps Script بتاعك (نفس اللي حطيته في admin.html) - لازم ينتهي بـ /exec
   var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw_cCB2H9ndKYBI0XWhOO-mYdD7en91v1y9SezPU3qJE64aAXhtbH54pMdTuSpUCTA7nA/exec';
+  if(!SCRIPT_URL || SCRIPT_URL.indexOf('PASTE_YOUR') === 0) return;
 
-  if(!SCRIPT_URL || SCRIPT_URL.indexOf('PASTE_YOUR') === 0){
-    return; // لسه محطوطش الرابط -> يفضل المحتوى الثابت الموجود في الصفحة كما هو
-  }
-
-  var cardImages = ['kaaba.jpg','ramadan.jpg','installment.jpg','hotel.jpg','medina.jpg'];
-  var cardClasses = ['','ramadan','purple','gold-card','gold-card'];
+  var defaultImages = ['kaaba.jpg','ramadan.jpg','installment.jpg','hotel.jpg','medina.jpg'];
+  var defaultStyles = ['','ramadan','purple','gold-card','gold-card'];
   var hajjGradients = [
     'linear-gradient(135deg,#2F63AE,#152A63)',
     'linear-gradient(135deg,#FFD83D,#FACA12)',
     'linear-gradient(135deg,#23418A,#152A63)'
   ];
 
-  function escapeHtml(s){
-    return String(s||'').replace(/[&<>"']/g, function(c){
+  function esc(s){
+    return String(s==null?'':s).replace(/[&<>"']/g,function(c){
       return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
     });
   }
 
+  /* ---------- العمرة: نفس كارت الموقع بالظبط ---------- */
   function renderUmrah(offers){
     var el = document.getElementById('umrahCards');
     if(!el || !offers.length) return;
     el.innerHTML = offers.map(function(o,i){
-      var cls = cardClasses[i % cardClasses.length];
-      var img = o.image || cardImages[i % cardImages.length];
-      var items = (o.items||[]).map(function(x){return '<li>'+escapeHtml(x)+'</li>';}).join('');
-      var priceRow = o.price ? '<div class="price">'+escapeHtml(o.price)+'</div>' : '';
-      return '<div class="card '+cls+'">'+
-        '<div class="card-img" style="background-image:url(\''+escapeHtml(img)+'\')"></div>'+
-        '<div class="card-body">'+
-          '<h3>'+escapeHtml(o.title)+'</h3>'+
-          '<ul>'+items+'</ul>'+
-          priceRow+
-        '</div>'+
-      '</div>';
+      var cls = o.badge || defaultStyles[i % defaultStyles.length];
+      var img = o.image || defaultImages[i % defaultImages.length];
+      var items = (o.items||[]).map(function(x){return '<li>'+esc(x)+'</li>';}).join('');
+      var price = o.price ? '<div class="price">'+esc(o.price)+'</div>' : '';
+      return '<div class="card'+(cls?' '+esc(cls):'')+'">'+
+          '<div class="card-img" style="background-image:url(\''+esc(img)+'\')"></div>'+
+          '<div class="card-body">'+
+            '<h3>'+esc(o.title)+'</h3>'+
+            '<ul>'+items+'</ul>'+
+            price+
+          '</div>'+
+        '</div>';
     }).join('');
   }
 
+  /* ---------- الحج: نفس البوكسات الملونة ---------- */
   function renderHajj(offers){
     var el = document.getElementById('hajjCards');
     if(!el || !offers.length) return;
     el.innerHTML = offers.map(function(o,i){
-      var bg = hajjGradients[i % hajjGradients.length];
-      var textColor = (i % hajjGradients.length === 1) ? 'var(--dark)' : '#fff';
-      var items = (o.items||[]).map(function(x){return '<li>'+escapeHtml(x)+'</li>';}).join('');
-      var btnLabel = o.subtitle || 'استفسر عن التفاصيل';
-      return '<div class="box" style="background:'+bg+';color:'+textColor+'">'+
-        '<div>'+
-          '<h3>'+escapeHtml(o.title)+'</h3>'+
-          '<ul>'+items+'</ul>'+
-        '</div>'+
-        '<a class="btn btn-light" href="#contact">'+escapeHtml(btnLabel)+'</a>'+
-      '</div>';
+      var idx = i % hajjGradients.length;
+      var color = (idx === 1) ? 'var(--dark)' : '#fff';
+      var items = (o.items||[]).map(function(x){return '<li>'+esc(x)+'</li>';}).join('');
+      var label = o.subtitle || 'استفسر عن التفاصيل';
+      return '<div class="box" style="background:'+hajjGradients[idx]+';color:'+color+'">'+
+          '<div><h3>'+esc(o.title)+'</h3><ul>'+items+'</ul></div>'+
+          '<a class="btn btn-light" href="#contact">'+esc(label)+'</a>'+
+        '</div>';
     }).join('');
   }
 
-  // عمرة الكاش: حقل "التفاصيل" = بيانات الفنادق (سطر لكل فندق)
-  // حقل "السعر" = أنواع الغرف بالشكل "النوع:السعر" كل نوع في سطر (مفصولين بـ | في الشيت)
-  function renderCash(offers){
-    var el = document.getElementById('cashCards');
-    if(!el || !offers.length) return;
-    var cards = offers.map(function(o){
-      var hotels = (o.items||[]).map(function(x){return '<div class="hotel">'+escapeHtml(x)+'</div>';}).join('');
-      var subtitleLine = o.subtitle ? '<div class="hotel">'+escapeHtml(o.subtitle)+'</div>' : '';
-      var rows = String(o.price||'').split('|').map(function(seg){
-        var parts = seg.split(':');
+  /* ---------- الكاش: نفس كارت الفنادق + جدول الأسعار ---------- */
+  function cashCard(o){
+    var hotels = (o.items||[]).map(function(x){return '<div class="hotel">'+esc(x)+'</div>';}).join('');
+    var sub = o.subtitle ? '<div class="hotel">'+esc(o.subtitle)+'</div>' : '';
+    var rows = String(o.price||'').split('|').map(function(seg){
+      if(!seg.trim()) return '';
+      var parts = seg.split(':');
+      if(parts.length < 2){
+        parts = seg.trim().split(/\s+(?=[\d,]+$)/);
         if(parts.length < 2) return '';
-        var label = parts[0].trim();
-        var value = parts.slice(1).join(':').trim();
-        return '<tr><td>'+escapeHtml(label)+'</td><td>'+escapeHtml(value)+'</td></tr>';
-      }).join('');
-      var table = rows ? '<table>'+rows+'</table>' : '';
-      return '<div class="cash">'+
-        '<h3>'+escapeHtml(o.title)+'</h3>'+
-        subtitleLine+
-        hotels+
-        table+
-      '</div>';
+      }
+      return '<tr><td>'+esc(parts[0].trim())+'</td><td>'+esc(parts.slice(1).join(':').trim())+'</td></tr>';
     }).join('');
-    el.innerHTML = '<div class="cash-grid">'+cards+'</div>';
+    return '<div class="cash">'+
+        '<h3>'+esc(o.title)+'</h3>'+ sub + hotels +
+        (rows ? '<table>'+rows+'</table>' : '')+
+      '</div>';
   }
 
-  fetch(SCRIPT_URL + '?action=offers&section=umrah')
-    .then(function(r){return r.json();})
-    .then(function(data){ if(data.ok && data.offers && data.offers.length) renderUmrah(data.offers); })
-    .catch(function(){});
+  function renderCash(gridId, offers){
+    var el = document.getElementById(gridId);
+    if(!el || !offers.length) return;
+    el.innerHTML = offers.map(cashCard).join('');
+  }
 
-  fetch(SCRIPT_URL + '?action=offers&section=hajj')
-    .then(function(r){return r.json();})
-    .then(function(data){ if(data.ok && data.offers && data.offers.length) renderHajj(data.offers); })
-    .catch(function(){});
+  function load(section, cb){
+    fetch(SCRIPT_URL + '?action=offers&section=' + section)
+      .then(function(r){ return r.json(); })
+      .then(function(d){ if(d && d.ok && d.offers && d.offers.length) cb(d.offers); })
+      .catch(function(){});
+  }
 
-  fetch(SCRIPT_URL + '?action=offers&section=cash')
-    .then(function(r){return r.json();})
-    .then(function(data){ if(data.ok && data.offers && data.offers.length) renderCash(data.offers); })
-    .catch(function(){});
+  load('umrah', renderUmrah);
+  load('hajj',  renderHajj);
+  load('cash',  function(o){ renderCash('cashGrid', o); });
+  load('cash5', function(o){ renderCash('cash5Grid', o); });
 })();
 </script>
 </body>
