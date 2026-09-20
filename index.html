@@ -90,6 +90,9 @@ header{border-bottom:2px solid var(--gold)}
 .section-title:after{background:linear-gradient(90deg,var(--green2),var(--gold))}
 .badge{background:rgba(255,255,255,.86);border-color:var(--gold);color:var(--green)}
 .notice{color:var(--ink)}
+/* كروت الحج: الكارت كله لينك */
+a.box{text-decoration:none;color:inherit;cursor:pointer;transition:.25s}
+a.box:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
 </style>
 <style>
 .lead-box{position:relative}
@@ -152,9 +155,9 @@ header{border-bottom:2px solid var(--gold)}
 <div class="container">
 <h2 class="section-title">برامج الحج</h2>
 <div class="hajj" id="hajjCards">
-<div class="box"><h3>الحج السياحي</h3><ul><li>برامج متنوعة ومميزة</li><li>خدمات مميزة للحجاج</li><li>إشراف ومتابعة</li></ul><a class="btn btn-light" href="#contact">استفسر عن التفاصيل</a></div>
-<div class="box"><h3>الحج الميسر</h3><ul><li>برنامج حج ميسر</li><li>خدمات متكاملة</li><li>أسعار وخيارات متعددة</li></ul><a class="btn btn-light" href="#contact">استفسر عن التفاصيل</a></div>
-<div class="box"><h3>الحج الميسر بالتقسيط</h3><ul><li>حتى 120,000 جنيه</li><li>تقسيط حتى 24 شهر</li><li>خطة سداد مرنة</li></ul><a class="btn btn-light" href="#contact">اطلب التفاصيل</a></div>
+<a class="box" href="https://amrkhaledmohamedeng-create.github.io/alhaju/" target="_blank" rel="noopener"><h3>الحج السياحي</h3><ul><li>برامج متنوعة ومميزة</li><li>خدمات مميزة للحجاج</li><li>إشراف ومتابعة</li></ul><span class="btn btn-light">استفسر عن التفاصيل</span></a>
+<a class="box" href="https://amrkhaledmohamedeng-create.github.io/alhaju/" target="_blank" rel="noopener"><h3>الحج الميسر</h3><ul><li>برنامج حج ميسر</li><li>خدمات متكاملة</li><li>أسعار وخيارات متعددة</li></ul><span class="btn btn-light">استفسر عن التفاصيل</span></a>
+<a class="box" href="https://amrkhaledmohamedeng-create.github.io/alhaju/" target="_blank" rel="noopener"><h3>الحج الميسر بالتقسيط</h3><ul><li>حتى 120,000 جنيه</li><li>تقسيط حتى 24 شهر</li><li>خطة سداد مرنة</li></ul><span class="btn btn-light">اطلب التفاصيل</span></a>
 </div>
 </div>
 </section>
@@ -311,6 +314,9 @@ header{border-bottom:2px solid var(--gold)}
   var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw_cCB2H9ndKYBI0XWhOO-mYdD7en91v1y9SezPU3qJE64aAXhtbH54pMdTuSpUCTA7nA/exec';
   if(!SCRIPT_URL || SCRIPT_URL.indexOf('PASTE_YOUR') === 0) return;
 
+  /* لينك صفحة الحج: بيفتح لما تدوس على أي كارت من كروت الحج */
+  var HAJJ_URL = 'https://amrkhaledmohamedeng-create.github.io/alhaju/';
+
   var defaultImages = ['kaaba.jpg','ramadan.jpg','installment.jpg','hotel.jpg','medina.jpg'];
   var defaultStyles = ['','ramadan','purple','gold-card','gold-card'];
   var hajjGradients = [
@@ -345,7 +351,7 @@ header{border-bottom:2px solid var(--gold)}
     }).join('');
   }
 
-  /* ---------- الحج: نفس البوكسات الملونة ---------- */
+  /* ---------- الحج: نفس البوكسات الملونة — كل كارت لينك ---------- */
   function renderHajj(offers){
     var el = document.getElementById('hajjCards');
     if(!el || !offers.length) return;
@@ -354,10 +360,10 @@ header{border-bottom:2px solid var(--gold)}
       var color = (idx === 1) ? 'var(--dark)' : '#fff';
       var items = (o.items||[]).map(function(x){return '<li>'+esc(x)+'</li>';}).join('');
       var label = o.subtitle || 'استفسر عن التفاصيل';
-      return '<div class="box" style="background:'+hajjGradients[idx]+';color:'+color+'">'+
+      return '<a class="box" href="'+HAJJ_URL+'" target="_blank" rel="noopener" style="background:'+hajjGradients[idx]+';color:'+color+'">'+
           '<div><h3>'+esc(o.title)+'</h3><ul>'+items+'</ul></div>'+
-          '<a class="btn btn-light" href="#contact">'+esc(label)+'</a>'+
-        '</div>';
+          '<span class="btn btn-light">'+esc(label)+'</span>'+
+        '</a>';
     }).join('');
   }
 
