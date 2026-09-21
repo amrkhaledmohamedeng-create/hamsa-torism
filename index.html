@@ -93,6 +93,8 @@ header{border-bottom:2px solid var(--gold)}
 /* كروت الحج: الكارت كله لينك */
 a.box{text-decoration:none;color:inherit;cursor:pointer;transition:.25s}
 a.box:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+/* كروت التيسير: الكارت كله لينك لصفحة التيسير */
+a.card{display:block;color:inherit;cursor:pointer}
 </style>
 <style>
 .lead-box{position:relative}
@@ -141,11 +143,11 @@ a.box:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
 <div class="container">
 <h2 class="section-title">برامج العمرة</h2>
 <div class="cards" id="umrahCards">
-<div class="card"><div class="card-img" style="background-image:url('kaaba.jpg')"></div><div class="card-body"><h3>عمرة التيسير</h3><ul><li>1,000 أو 1,250 أو 1,500 جنيه شهريًا</li><li>على مدار 24 شهر</li><li>2,000 أو 2,500 أو 3,000 جنيه شهريًا</li><li>على مدار 12 شهر</li></ul><div class="price">ابدأ من 1,000 جنيه</div></div></div>
-<div class="card ramadan"><div class="card-img" style="background-image:url('ramadan.jpg')"></div><div class="card-body"><h3>تيسير رمضان</h3><ul><li>3,000 جنيه على 16 شهر</li><li>بدأ من شهر 6</li><li>2,500 جنيه على 20 شهر</li><li>بدأ من شهر 5</li></ul><div class="price">حجز مرن</div></div></div>
+<a class="card" href="https://hamsatouirsmcompany.github.io/TAYSER/" target="_blank" rel="noopener"><div class="card-img" style="background-image:url('kaaba.jpg')"></div><div class="card-body"><h3>عمرة التيسير</h3><ul><li>1,000 أو 1,250 أو 1,500 جنيه شهريًا</li><li>على مدار 24 شهر</li><li>2,000 أو 2,500 أو 3,000 جنيه شهريًا</li><li>على مدار 12 شهر</li></ul><div class="price">ابدأ من 1,000 جنيه</div></div></a>
+<a class="card ramadan" href="https://hamsatouirsmcompany.github.io/TAYSER/" target="_blank" rel="noopener"><div class="card-img" style="background-image:url('ramadan.jpg')"></div><div class="card-body"><h3>تيسير رمضان</h3><ul><li>3,000 جنيه على 16 شهر</li><li>بدأ من شهر 6</li><li>2,500 جنيه على 20 شهر</li><li>بدأ من شهر 5</li></ul><div class="price">حجز مرن</div></div></a>
 <div class="card purple"><div class="card-img" style="background-image:url('installment.jpg')"></div><div class="card-body"><h3>العمرة بالقسط</h3><ul><li>اختار البرنامج</li><li>ادفع 50% أو 60%</li><li>قسط الباقي من 3 إلى 12 شهر</li><li>بدون تعقيد</li></ul><div class="price">3 - 12 شهر</div></div></div>
-<div class="card gold-card"><div class="card-img" style="background-image:url('hotel.jpg')"></div><div class="card-body"><h3>عمرة التيسير البلاتينوم</h3><ul><li>5,000 جنيه</li><li>على 12 شهر</li><li>برنامج مميز</li></ul><div class="price">5,000 × 12 شهر</div></div></div>
-<div class="card gold-card"><div class="card-img" style="background-image:url('medina.jpg')"></div><div class="card-body"><h3>عمرة التيسير الذهبية</h3><ul><li>4,000 جنيه</li><li>على 12 شهر</li><li>خيار مميز للتيسير</li></ul><div class="price">4,000 × 12 شهر</div></div></div>
+<a class="card gold-card" href="https://hamsatouirsmcompany.github.io/TAYSER/" target="_blank" rel="noopener"><div class="card-img" style="background-image:url('hotel.jpg')"></div><div class="card-body"><h3>عمرة التيسير البلاتينوم</h3><ul><li>5,000 جنيه</li><li>على 12 شهر</li><li>برنامج مميز</li></ul><div class="price">5,000 × 12 شهر</div></div></a>
+<a class="card gold-card" href="https://hamsatouirsmcompany.github.io/TAYSER/" target="_blank" rel="noopener"><div class="card-img" style="background-image:url('medina.jpg')"></div><div class="card-body"><h3>عمرة التيسير الذهبية</h3><ul><li>4,000 جنيه</li><li>على 12 شهر</li><li>خيار مميز للتيسير</li></ul><div class="price">4,000 × 12 شهر</div></div></a>
 </div>
 <div class="notice"><b>ملحوظة تيسير رمضان:</b> لو حابب تحجز بعد بداية الحجز، يمكنك دفع الشهور السابقة بأثر رجعي وفقًا لنظام الحجز المتاح.</div>
 </div>
@@ -317,6 +319,9 @@ a.box:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
   /* لينك صفحة الحج: بيفتح لما تدوس على أي كارت من كروت الحج */
   var HAJJ_URL = 'https://amrkhaledmohamedeng-create.github.io/alhaju/';
 
+  /* لينك صفحة التيسير: بيفتح لما تدوس على أي كارت تيسير */
+  var TAYSER_URL = 'https://hamsatouirsmcompany.github.io/TAYSER/';
+
   var defaultImages = ['kaaba.jpg','ramadan.jpg','installment.jpg','hotel.jpg','medina.jpg'];
   var defaultStyles = ['','ramadan','purple','gold-card','gold-card'];
   var hajjGradients = [
@@ -331,7 +336,7 @@ a.box:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
     });
   }
 
-  /* ---------- العمرة: نفس كارت الموقع بالظبط ---------- */
+  /* ---------- العمرة: نفس كارت الموقع بالظبط — كروت التيسير لينك لصفحة التيسير ---------- */
   function renderUmrah(offers){
     var el = document.getElementById('umrahCards');
     if(!el || !offers.length) return;
@@ -340,14 +345,19 @@ a.box:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
       var img = o.image || defaultImages[i % defaultImages.length];
       var items = (o.items||[]).map(function(x){return '<li>'+esc(x)+'</li>';}).join('');
       var price = o.price ? '<div class="price">'+esc(o.price)+'</div>' : '';
-      return '<div class="card'+(cls?' '+esc(cls):'')+'">'+
+      var isTayser = /تيسير/.test(o.title || '');
+      var open = isTayser
+        ? '<a class="card'+(cls?' '+esc(cls):'')+'" href="'+TAYSER_URL+'" target="_blank" rel="noopener">'
+        : '<div class="card'+(cls?' '+esc(cls):'')+'">';
+      var close = isTayser ? '</a>' : '</div>';
+      return open+
           '<div class="card-img" style="background-image:url(\''+esc(img)+'\')"></div>'+
           '<div class="card-body">'+
             '<h3>'+esc(o.title)+'</h3>'+
             '<ul>'+items+'</ul>'+
             price+
           '</div>'+
-        '</div>';
+        close;
     }).join('');
   }
 
